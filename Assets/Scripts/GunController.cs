@@ -11,7 +11,7 @@ public class GunController : MonoBehaviour
 	public float bulletSpeed;
 
 	public float timeBetweenShots;
-	private float shotCounter;
+	public float shotCounter;
 
 	public Transform bulletSpawnPoint;
 
@@ -30,8 +30,11 @@ public class GunController : MonoBehaviour
 			shotCounter -= Time.deltaTime;
 			if (shotCounter <= 0)
 			{
+				//Set the shot counter to the value of the time it takes between each shot
 				shotCounter = timeBetweenShots;
+				//Spawn the bullet at the attached/specified bullet spawn point
 				BulletController newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation) as BulletController;
+				//The spawned bullet speed is equal to the defined bulletSpeed variable.
 				newBullet.speed = bulletSpeed;
 			}
 			else

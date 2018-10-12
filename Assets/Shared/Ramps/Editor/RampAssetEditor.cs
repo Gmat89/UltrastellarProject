@@ -16,7 +16,7 @@ using UnityEngine;
         void Bake()
         {
             var r = target as RampAsset;
-            var t = new Texture2D(r.size, r.size, TextureFormat.ARGB32, mipChain: true);
+            var t = new Texture2D(r.size, r.size, TextureFormat.ARGB32, mipmap: true);
             var p = t.GetPixels();
             for (var x = 0; x < r.size; x++)
                 for (var y = 0; y < r.size; y++)

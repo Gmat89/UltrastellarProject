@@ -58,7 +58,7 @@ public class PlayerHealthManager : MonoBehaviour
 		currentHealth -= damageAmount;
 		//Change the colour of the player when they are hit
 		flashCounter = flashLength;
-		//Sets thhe renderers flash colour
+		//Sets the renderers flash colour from the stored colour
 		rend.material.SetColor("_Color", Color.red);
 	}
 
