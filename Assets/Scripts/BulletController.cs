@@ -7,6 +7,7 @@ public class BulletController : MonoBehaviour
 	public float speed;
 	public float lifeTime;
 	public int damageToGive;
+	//this is to test source control
 	// Use this for initialization
 	void Start ()
 	{
