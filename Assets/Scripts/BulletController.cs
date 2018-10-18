@@ -17,9 +17,11 @@ public class BulletController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		//Add velocity to the bullets transform based on the defined speed multiplied by Time
 		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
 		lifeTime -= Time.deltaTime;
+		//if the lifetime of the bullet equals 0 then destroy the bullet.
 		if (lifeTime <= 0)
 		{
 			Destroy(gameObject);

@@ -10,15 +10,16 @@ public class GunController : MonoBehaviour
 	public BulletController bullet;
 	public float bulletSpeed;
 
-	public float timeBetweenShots;
+	public float timeBetweenShots = 0.3333f;
 	public float shotCounter;
+	private float timestamp;
 
 	public Transform bulletSpawnPoint;
 
 	// Use this for initialization
 	void Start ()
 	{
-		
+		isFiring = false;
 	}
 	
 	// Update is called once per frame
@@ -26,21 +27,18 @@ public class GunController : MonoBehaviour
 	{
 		//if the gun is firing
 		if (isFiring)
+
 		{
-			shotCounter -= Time.deltaTime;
-			if (shotCounter <= 0)
+			if (Time.time >= timestamp && (Input.GetMouseButton(0)))
 			{
-				//Set the shot counter to the value of the time it takes between each shot
-				shotCounter = timeBetweenShots;
-				//Spawn the bullet at the attached/specified bullet spawn point
-				BulletController newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation) as BulletController;
-				//The spawned bullet speed is equal to the defined bulletSpeed variable.
+				isFiring = true;
+				BulletController newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+				timestamp = Time.time + timeBetweenShots;
 				newBullet.speed = bulletSpeed;
 			}
-			else
-			{
-				shotCounter = 0;
-			}
 		}
+
+	
 	}
 }
+
