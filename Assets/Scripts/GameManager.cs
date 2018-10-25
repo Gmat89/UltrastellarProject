@@ -7,10 +7,13 @@ public class GameManager : MonoBehaviour
 	public GameObject thePlayer;
 
 	private ScoreManager theScoreManager;
+	
 
 	public bool gameIsRunning;
 
 	public static GameManager instance;
+
+	private WaveSpawner theWaveSpawner;
 
 
 	void Awake()
@@ -30,6 +33,8 @@ public class GameManager : MonoBehaviour
 	{
 		gameIsRunning = true;
 		theScoreManager = FindObjectOfType<ScoreManager>();
+		//theWaveSpawner = FindObjectOfType<WaveSpawner>();
+
 
 
 	}

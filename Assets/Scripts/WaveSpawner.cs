@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
+public enum SpawnState { SPAWNING, WAITING, COUNTING };
+
 public class WaveSpawner : MonoBehaviour
 {
 
-	public enum SpawnState { SPAWNING, WAITING, COUNTING };
+	
 
 	[System.Serializable]
 	public class Wave
@@ -35,7 +37,7 @@ public class WaveSpawner : MonoBehaviour
 
 	private float searchCountdown = 1f;
 
-	private SpawnState state = SpawnState.COUNTING;
+	public SpawnState state = SpawnState.COUNTING;
 	public SpawnState State
 	{
 		get { return state; }
