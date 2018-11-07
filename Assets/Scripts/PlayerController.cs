@@ -17,13 +17,41 @@ public class PlayerController : MonoBehaviour
 
 	public bool useController;
 
+	public float flashLength;
+	private float flashCounter;
+
+	private Renderer rend;
+	private Color storedColor;
+	public ParticleSystem playerDeathEffect;
+
+
 	// Use this for initialization
 	void Start ()
 	{
+		rend = GetComponent<Renderer>();
+		storedColor = rend.material.GetColor("_Color");
 		myRigidbody = GetComponent<Rigidbody>();
 		mainCamera = FindObjectOfType<Camera>();
+		GetComponent<PlayerHealthManager>().OnHealthChanged += RespondToHealthChanged;
+		
 	}
-	
+
+
+	public void RespondToHealthChanged(int amount)
+	{
+		if (flashCounter > 0)
+		{
+			flashCounter -= Time.deltaTime;
+			if (flashCounter <= 0)
+			{
+				rend.material.SetColor("_Color", storedColor);
+			}
+			flashCounter = flashLength;
+			//Sets the renderers flash colour from the stored colour
+			rend.material.SetColor("_Color", Color.red);
+		}
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -82,4 +110,7 @@ public class PlayerController : MonoBehaviour
 	{
 		myRigidbody.velocity = moveVelocity;
 	}
+
+
+
 }
