@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
 	private Camera mainCamera;
 
-	public Inventeriesr theGun;
+	public GunController theGun;
 
 	public bool useController;
 
