@@ -11,19 +11,20 @@ public class PlayerHealthManager : MonoBehaviour
 	public float currentHealth;
 	public GameObject healthBar;
 	public bool playerIsDead;
-	int amount;
 
 	private EventManager theEventManager;
-	public event Action<int> OnHealthChanged;
-	public event Action<int> OnDeath;
+	public event Action<float> OnHealthChanged;
+	public event Action<float> OnDeath;
 
-	public void Change(int changeAmount)
+	public void Change(float changeAmount)
 	{
-		amount += changeAmount;
+		currentHealth += changeAmount;
 		if (OnHealthChanged != null)
 		{
-			OnDeath(changeAmount);
+			OnHealthChanged(changeAmount);
 		}
+
+
 	}
 
 
@@ -63,7 +64,7 @@ public class PlayerHealthManager : MonoBehaviour
 	public void DamagePlayer(float damageAmount)
 	{
 		//take damage amount away from player health when it's hit.
-		currentHealth -= damageAmount;
+		Change(-damageAmount);
 	}
 
 

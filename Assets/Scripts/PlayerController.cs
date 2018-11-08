@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
 	private Camera mainCamera;
 
-	public GunController theGun;
+	public Inventeriesr theGun;
 
 	public bool useController;
 
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 
-	public void RespondToHealthChanged(int amount)
+	public void RespondToHealthChanged(float amount)
 	{
 		if (flashCounter > 0)
 		{
