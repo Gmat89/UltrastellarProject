@@ -7,7 +7,7 @@ public class CamsCrapUI : MonoBehaviour
 {
 	public Text textComponent;
 	PlayerController findObjectOfType;
-	PlayerHealthManager playerHealthManager;
+	HealthManager theHealthManager;
 
 	// Use this for initialization
 	void Start()
@@ -15,14 +15,14 @@ public class CamsCrapUI : MonoBehaviour
 		// Look up the play
 		findObjectOfType = FindObjectOfType<PlayerController>();
 
-		playerHealthManager = findObjectOfType.GetComponent<PlayerHealthManager>();
+		theHealthManager = findObjectOfType.GetComponent<HealthManager>();
 
-		playerHealthManager.OnHealthChanged += OnHealthChanged;
+		theHealthManager.OnHealthChanged += OnHealthChanged;
 	}
 
 	private void OnHealthChanged(float amount)
 	{
-		textComponent.text = playerHealthManager.currentHealth.ToString();
+		textComponent.text = theHealthManager.currentHealth.ToString();
 	}
 
 	// Update is called once per frame

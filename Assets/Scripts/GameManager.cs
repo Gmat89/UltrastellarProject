@@ -15,7 +15,11 @@ public class GameManager : MonoBehaviour
 
 	private WaveSpawner theWaveSpawner;
 
-
+	public void PlayGame()
+	{
+		Debug.Log("Game has Started");
+		//theEventManager.StartGame();
+	}
 	void Awake()
 	{
 		// If an instance already exists, destroy this one
@@ -38,6 +42,8 @@ public class GameManager : MonoBehaviour
 
 
 	}
+
+
 	
 	// Update is called once per frame
 	void Update ()

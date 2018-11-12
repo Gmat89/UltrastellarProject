@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,7 +23,10 @@ public class PlayerController : MonoBehaviour
 
 	private Renderer rend;
 	private Color storedColor;
-	public ParticleSystem playerDeathEffect;
+	public ParticleSystem deathEffect;
+	public HealthManager theHealthManager;
+
+	public event Action<float> OnDeath;
 
 
 	// Use this for initialization
@@ -32,12 +36,11 @@ public class PlayerController : MonoBehaviour
 		storedColor = rend.material.GetColor("_Color");
 		myRigidbody = GetComponent<Rigidbody>();
 		mainCamera = FindObjectOfType<Camera>();
-		GetComponent<PlayerHealthManager>().OnHealthChanged += RespondToHealthChanged;
-		
+		GetComponent<HealthManager>().OnHealthChanged += RespondToHealthChanged;
 	}
 
 
-	public void RespondToHealthChanged(float amount)
+	private void RespondToHealthChanged(float amount)
 	{
 		if (flashCounter > 0)
 		{
@@ -50,7 +53,18 @@ public class PlayerController : MonoBehaviour
 			//Sets the renderers flash colour from the stored colour
 			rend.material.SetColor("_Color", Color.red);
 		}
+		//Checks if the current health in the HealthManager is <= 0 then...
+		if (theHealthManager.currentHealth <= 0)
+			{
+				//Spawns the death effect
+				Instantiate(deathEffect, transform.position, transform.rotation);
+				//sets the particle effect visibility to false once it's finished playing
+				gameObject.SetActive(false);
+				//Load the gameover scene
+				//SceneManager.LoadScene("GameOver");
+		}
 	}
+	
 
 	// Update is called once per frame
 	void Update()

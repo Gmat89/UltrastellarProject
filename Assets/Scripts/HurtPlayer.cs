@@ -13,7 +13,7 @@ public class HurtPlayer : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			//Deal damage to the player based on the defined value of damageToGive
-			other.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(damageToGive);
+			other.gameObject.GetComponent<HealthManager>().DamagePlayer(damageToGive);
 		}
 	}
 }

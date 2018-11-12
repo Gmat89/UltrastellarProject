@@ -9,7 +9,7 @@ public class CamEventTests : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		FindObjectOfType<PlayerController>().GetComponent<PlayerHealthManager>().OnHealthChanged += OnHealthChanged;
+		FindObjectOfType<PlayerController>().GetComponent<HealthManager>().OnHealthChanged += OnHealthChanged;
 	}
 
 	private void OnHealthChanged(float obj)

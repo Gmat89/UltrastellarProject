@@ -7,9 +7,6 @@ public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
 public class WaveSpawner : MonoBehaviour
 {
-
-	
-
 	[System.Serializable]
 	public class Wave
 	{
@@ -17,6 +14,7 @@ public class WaveSpawner : MonoBehaviour
 		public Transform enemy;
 		public int count;
 		public float rate;
+		
 	}
 
 	public Wave[] waves;

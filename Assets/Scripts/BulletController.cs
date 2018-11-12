@@ -40,7 +40,7 @@ public class BulletController : MonoBehaviour
 		else if (other.gameObject.tag == "Player")
 		{
 			//Damage the player on collision
-			other.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(damageToGive);
+			other.gameObject.GetComponent<HealthManager>().DamagePlayer(damageToGive);
 			//Destroy the bullet object
 			Destroy(gameObject);
 		}
