@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyHealthManager : MonoBehaviour
 {
+    public AudioSource EnemyDeathSound;
+
 	public int scoreToGive;
 	public int health;
 	public int currentHealth;
@@ -48,6 +50,8 @@ public class EnemyHealthManager : MonoBehaviour
 		{
 			//Set enemy is dead bool to true
 			enemyIsDead = true;
+            //Play DeathAudio
+            EnemyDeathSound.Play();
 			//Check if the bool is set to true and if it is then call EnemyDeath function
 			if (enemyIsDead)
 			{
