@@ -3,6 +3,7 @@ using System;
 
 public class HealthManager : MonoBehaviour
 {
+    public AudioSource PlayerDeath;
 	public float maxHealth;
 	public float currentHealth;
 	public bool playerIsDead;
@@ -30,7 +31,8 @@ public class HealthManager : MonoBehaviour
 				{
 					//sets the player game object visibility to false.
 					gameObject.SetActive(false);
-					//Add Audio code here for when the player dies
+                    //Audio code here for when the player dies
+                    PlayerDeath.Play();
 				}
 			}
 		}

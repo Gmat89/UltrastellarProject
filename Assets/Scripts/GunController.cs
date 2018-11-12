@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    public AudioSource GunSound;
+
 	//Note: this script can be used on different types of guns/powerUps by changing the variables
 	public bool isFiring;
 
@@ -33,6 +35,7 @@ public class GunController : MonoBehaviour
 			//if the player is pressing and holding the left mouse button down, the game gets the current time, checks if it is less than equal to the timestamp variable then;
 			if (Time.time >= timestamp && (Input.GetMouseButton(0)))
 			{
+                GunSound.Play();
 				//sets the firing bool to true
 				isFiring = true;
 				//Spawns the bullet at the location of the Bullet Spawn Point. 
