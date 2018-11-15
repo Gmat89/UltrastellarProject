@@ -1,16 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Points : MonoBehaviour
 {
-
+	//the points that a player recieves
 	public int scoreToGive;
-
+	//Reference to the score manager
 	private ScoreManager theScoreManager;
-	private EnemyHealthManager theEnemyHealthManager;
+	//Audio clip for when the enemy is killed
 	public AudioClip enemyDeath;
+	//The audio source
 	private AudioSource audioSource;
+	//This objects renderer
 	public Renderer rend;
 
 
@@ -22,13 +23,13 @@ public class Points : MonoBehaviour
 		rend.enabled = true;
 		audioSource = GetComponent<AudioSource>();
 		theScoreManager = FindObjectOfType<ScoreManager>();
-		theEnemyHealthManager = GetComponent<EnemyHealthManager>();
+		//theHealthManager = GetComponent<HealthManager>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (theEnemyHealthManager.currentHealth ==0)
+		//if (theHealthManager.currentHealth ==0)
 		{
 			theScoreManager.AddScore(scoreToGive);
 		}

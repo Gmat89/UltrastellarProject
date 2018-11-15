@@ -1,13 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUpTemplate : MonoBehaviour
 {
+	//Reference to the gun controller
 	public GunController theGunController;
+	//Rate of Fire Power reference
 	public float ROFPower;
+	//The object to pickup
 	public GameObject pickupEffect;
+	//The particle effect once the pickup has been collected
 	public ParticleSystem pickupParticle;
+	//The duration of the powerup
 	public float powerupDuration = 4.0f;
 	
 
@@ -16,7 +20,9 @@ public class PowerUpTemplate : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		//Declare the gunController, Find the object in the scene
 		theGunController = FindObjectOfType<GunController>();
+		//Declare the pickup Particle effect, find the particle system
 		pickupParticle = GetComponent<ParticleSystem>();
 	}
 
@@ -30,9 +36,12 @@ public class PowerUpTemplate : MonoBehaviour
 
 	public void OnTriggerEnter(Collider other)
 	{
+		//If the object that has been collided with is the Player
 		if (other.gameObject.tag == "Player")
 		{
+			//Clear the particle effect upon collision once its finished playing
 			pickupParticle.Clear();
+			//Start the coroutine for the pickup
 			StartCoroutine(Pickup());
 		}
 	}
@@ -42,13 +51,14 @@ public class PowerUpTemplate : MonoBehaviour
 		//Spawn Effect when pick is collected
 		Instantiate(pickupEffect, transform.position, transform.rotation);
 		
-		//Apply the effect to the Player
+		//Apply the powerup to the Player
 		theGunController.timeBetweenShots -= ROFPower;
-
+		//Calculation to clamp the timebetween shots variable so that it never exceeds a set amount in the negative
 		if (theGunController.timeBetweenShots < 0.1)
 		{
 			theGunController.timeBetweenShots = Mathf.Clamp(0, 0, theGunController.timeBetweenShots);
 		}
+		//Calculation to clamp the timebetween shots variable so that it never exceeds a set amount in the positive
 		if (theGunController.timeBetweenShots > 0.6)
 		{
 			theGunController.timeBetweenShots = Mathf.Clamp(0, 0, theGunController.timeBetweenShots);

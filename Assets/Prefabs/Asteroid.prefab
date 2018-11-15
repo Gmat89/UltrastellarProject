@@ -138,17 +138,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1217056789517808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 444906e98cfdfe649a52c795ce158317, type: 3}
+  m_Script: {fileID: 11500000, guid: 26cdd287e36e2a143860d55100b690c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints:
   - {fileID: 1545629862896992, guid: ea2784b24208353479e111f18b4a0735, type: 2}
   - {fileID: 1195407515929724, guid: 3b9e11b4476810a4aac51a79389bfed1, type: 2}
   - {fileID: 1913075767643644, guid: b2394123522c7ea43998ef6336e219e6, type: 2}
-  rotSpeed: 5
+  rotSpeed: 2
   speed: 3
   pickUp: {fileID: 1505079128116362, guid: 049a8dce21cbbc341a03689f306e56a2, type: 2}
-  popEffect: {fileID: 198220379293217532, guid: d8f0099df63275647a8bcf646df1ca00,
+  popEffect: {fileID: 198673669173671770, guid: bdfb0dc4ca073ba4cb5fc5f034aefc27,
     type: 2}
 --- !u!135 &135721790709037322
 SphereCollider:

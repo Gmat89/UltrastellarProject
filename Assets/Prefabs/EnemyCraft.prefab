@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4213574392164592}
   - component: {fileID: 54144011370622644}
   - component: {fileID: 114562773697481538}
-  - component: {fileID: 114706863162499066}
+  - component: {fileID: 114408885041626464}
   - component: {fileID: 23614069620775384}
   - component: {fileID: 65013188953331854}
   - component: {fileID: 82926168635951488}
@@ -355,6 +355,24 @@ MonoBehaviour:
   DistanceFrom: 0
   DistanceToPlayer: 20
   Timer: 2
+--- !u!114 &114408885041626464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758712188945106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38cee8a5f5e84a24d850fb8e883e63f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSound: {fileID: 0}
+  maxHealth: 10
+  currentHealth: 0
+  playerIsDead: 0
+  theUIManager: {fileID: 0}
+  enemyIsDead: 0
+  particleSpawned: 0
 --- !u!114 &114562773697481538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,24 +385,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  thePlayer: {fileID: 0}
---- !u!114 &114706863162499066
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1758712188945106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be6d7bb9704d624f802f83fa53c68b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyDeathSound: {fileID: 82926168635951488}
-  scoreToGive: 100
-  health: 10
-  currentHealth: 0
-  flashLength: 0.2
+  thePlayer: {fileID: 114220421220066714, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
+    type: 2}
+  flashLength: 0.3
+  flashCounter: 0
   deathEffect: {fileID: 198352442773033964, guid: bef2986a238400141815b6797850c433,
     type: 2}
-  enemyIsDead: 0
-  particleSpawned: 0
+  theHealthManager: {fileID: 114605218124024334, guid: 97aa30f39c912fa4c97657135cc5e24c,
+    type: 2}

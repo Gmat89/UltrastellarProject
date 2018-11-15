@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+	//Text object reference, score text
 	public Text scoreText;
+	//Text object reference, hi score text
 	public Text hiScoreText;
-
+	//current score
 	public float scoreCount;
+	//hi score count
 	public float hiScoreCount;
 
-
+	//points that the player will earn per second
 	public float pointsPerSecond;
-
+	//bool to check if the score is increasing
 	public bool scoreIncreasing;
 
 	// Use this for initialization
@@ -51,4 +54,10 @@ public class ScoreManager : MonoBehaviour
 	{
 		scoreCount += pointsToAdd;
 	}
+
+	void OnDestroy()
+	{
+
+	}
 }
+

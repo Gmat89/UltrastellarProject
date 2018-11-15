@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 135726647513676636}
   - component: {fileID: 114979637483125256}
   - component: {fileID: 23326298358696272}
-  - component: {fileID: 114868490112131898}
   m_Layer: 0
   m_Name: ROFBoost
   m_TagString: Untagged
@@ -80,25 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &114868490112131898
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1505079128116362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 444906e98cfdfe649a52c795ce158317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1545629862896992, guid: ea2784b24208353479e111f18b4a0735, type: 2}
-  - {fileID: 1195407515929724, guid: 3b9e11b4476810a4aac51a79389bfed1, type: 2}
-  - {fileID: 1913075767643644, guid: b2394123522c7ea43998ef6336e219e6, type: 2}
-  rotSpeed: 0
-  speed: 5
-  pickUp: {fileID: 0}
-  popEffect: {fileID: 0}
 --- !u!114 &114979637483125256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,7 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81e150a3243dfc4b8200e69e85110e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theGunController: {fileID: 0}
+  theGunController: {fileID: 114243124219138570, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
+    type: 2}
   ROFPower: 0.2
   pickupEffect: {fileID: 1119157666658544, guid: bdfb0dc4ca073ba4cb5fc5f034aefc27,
     type: 2}

@@ -3,14 +3,17 @@ using System;
 
 public class HealthManager : MonoBehaviour
 {
-    public AudioSource PlayerDeath;
+    public AudioSource deathSound;
 	public float maxHealth;
 	public float currentHealth;
 	public bool playerIsDead;
 
 	public event Action<float> OnHealthChanged;
 	public event Action<float> OnHit;
-	public GameUI theUIManager;
+	public UIManager theUIManager;
+
+	public bool enemyIsDead;
+	public bool particleSpawned;
 
 	//Add Public AudioSource here
 
@@ -26,13 +29,20 @@ public class HealthManager : MonoBehaviour
 			{
 				//set the player is dead bool to true
 				playerIsDead = true;
+				enemyIsDead = true;
 				//check if the player is dead bool is true then..
 				if (playerIsDead)
 				{
 					//sets the player game object visibility to false.
 					gameObject.SetActive(false);
                     //Audio code here for when the player dies
-                    PlayerDeath.Play();
+                    //deathSound.Play(); fix this!
+				}
+				else if (enemyIsDead)
+				{
+					gameObject.SetActive(false);
+					//Audio code here for when the player dies
+					//deathSound.Play(); fix this!
 				}
 			}
 		}
@@ -45,13 +55,16 @@ public class HealthManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		enemyIsDead = false;
 		playerIsDead = false;
 		currentHealth = maxHealth;
 	}
 	
-	public void DamagePlayer(float damageAmount)
+	public void DamageObject(float damageAmount)
 	{
 		//take damage amount away from player health when it's hit based on the change event.
 		Change(-damageAmount);
 	}
+
+	
 }
