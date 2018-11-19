@@ -5,8 +5,9 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-	//Player move speed
-	public float moveSpeed;
+
+    //Player move speed
+    public float moveSpeed;
 	//Player rigidbody
 	private Rigidbody myRigidbody;
 	//Move Input
@@ -34,6 +35,8 @@ public class PlayerController : MonoBehaviour
 	//Reference to the Health Manager
 	public HealthManager theHealthManager;
 
+    public BoxCollider myCollider;
+
 	//As soon as the game is played
 	void Awake()
 	{
@@ -57,7 +60,8 @@ public class PlayerController : MonoBehaviour
 		//Find the HealthManager and subscribe to an event based on the health variable changing
 		GetComponent<HealthManager>().OnHealthChanged += RespondToHealthChanged;
 
-	}
+        myCollider = GetComponent<BoxCollider>();
+    }
 
 	//Respond to Damage
 	private void RespondToHealthChanged(float amount)
@@ -69,17 +73,19 @@ public class PlayerController : MonoBehaviour
 
 		//Checks if the current health of this object is <= 0 then...
 		if (theHealthManager.currentHealth <= 0)
-			{
-				//Spawns the death effect at the relative location
-				Instantiate(deathEffect, transform.position, transform.rotation);
+		{
+                myCollider.enabled = !myCollider.enabled;
+                //Spawns the death effect at the relative location
+                 Instantiate(deathEffect, transform.position, transform.rotation);
 				//sets the particle effect visibility to false once it's finished playing
-				gameObject.SetActive(false);
+				//gameObject.SetActive(false);
 				//Destroy the particle effect
-				//Destroy(deathEffect);
+				Destroy(deathEffect);
 				//Load the gameover scene
 				//SceneManager.LoadScene("GameOver");
 		}
 	}
+   
 	
 
 	// Update is called once per frame

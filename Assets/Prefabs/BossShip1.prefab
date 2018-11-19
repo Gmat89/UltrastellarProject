@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 65612934287471260}
   - component: {fileID: 82183868538664558}
   - component: {fileID: 23620127543857340}
+  - component: {fileID: 114877368274471904}
   m_Layer: 0
   m_Name: BossShip1
   m_TagString: Enemy
@@ -351,7 +352,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 938e917e1f0ee8c46b2149281a68ce41, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -447,6 +448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c753945fdb25a8f4d8c7828dbe03d7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyDestroyed: {fileID: 82183868538664558}
+  EnemyCollider: {fileID: 0}
+  DestroyScript: {fileID: 0}
   moveSpeed: 2
   thePlayer: {fileID: 114220421220066714, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
     type: 2}
@@ -455,6 +459,17 @@ MonoBehaviour:
   deathEffect: {fileID: 198352442773033964, guid: bef2986a238400141815b6797850c433,
     type: 2}
   theHealthManager: {fileID: 114948305703115598}
+--- !u!114 &114877368274471904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1689171156008840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 719e33038dc1c5140adb5d97929ad2e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114948305703115598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,13 +481,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38cee8a5f5e84a24d850fb8e883e63f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 0}
   maxHealth: 10
   currentHealth: 0
   playerIsDead: 0
   theUIManager: {fileID: 0}
   enemyIsDead: 0
   particleSpawned: 0
+  deathSoundSource: {fileID: 0}
+  deathClip: {fileID: 0}
 --- !u!114 &114981672737928534
 MonoBehaviour:
   m_ObjectHideFlags: 1

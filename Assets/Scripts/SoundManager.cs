@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public AudioSource Track1;
 
 	public static SoundManager instance = null
 		; //Static instance of GameManager which allows it to be accessed by any other script.
 
-	//Awake is always called before any Start functions
-	void Awake()
+    private void Start()
+    {
+        Track1.Play();
+    }
+    //Awake is always called before any Start functions
+    void Awake()
 	{
 	//Check if instance already exists
 		if (instance == null)
@@ -26,4 +31,5 @@ public class SoundManager : MonoBehaviour
 	//Sets this to not be destroyed when reloading scene
 		DontDestroyOnLoad(gameObject);
 	}
+  
 }

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 23614069620775384}
   - component: {fileID: 65013188953331854}
   - component: {fileID: 82926168635951488}
+  - component: {fileID: 114290600778960324}
   m_Layer: 0
   m_Name: EnemyCraft
   m_TagString: Enemy
@@ -355,6 +356,17 @@ MonoBehaviour:
   DistanceFrom: 0
   DistanceToPlayer: 20
   Timer: 2
+--- !u!114 &114290600778960324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758712188945106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 719e33038dc1c5140adb5d97929ad2e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114408885041626464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,13 +378,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38cee8a5f5e84a24d850fb8e883e63f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 0}
   maxHealth: 10
   currentHealth: 0
   playerIsDead: 0
   theUIManager: {fileID: 0}
   enemyIsDead: 0
   particleSpawned: 0
+  deathSoundSource: {fileID: 0}
+  deathClip: {fileID: 0}
 --- !u!114 &114562773697481538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,6 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c753945fdb25a8f4d8c7828dbe03d7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyDestroyed: {fileID: 82926168635951488}
+  EnemyCollider: {fileID: 0}
+  DestroyScript: {fileID: 0}
   moveSpeed: 3
   thePlayer: {fileID: 114220421220066714, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
     type: 2}

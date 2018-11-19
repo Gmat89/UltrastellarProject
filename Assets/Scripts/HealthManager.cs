@@ -3,22 +3,23 @@ using System;
 
 public class HealthManager : MonoBehaviour
 {
-    public AudioSource deathSound;
+    
 	public float maxHealth;
 	public float currentHealth;
 	public bool playerIsDead;
 
 	public event Action<float> OnHealthChanged;
-	public event Action<float> OnHit;
 	public UIManager theUIManager;
 
 	public bool enemyIsDead;
 	public bool particleSpawned;
+    public AudioSource deathSoundSource;
+    public AudioClip deathClip;
 
-	//Add Public AudioSource here
+    //Add Public AudioSource here
 
-	//Starts an event when the health variable is changed
-	public void Change(float changeAmount)
+    //Starts an event when the health variable is changed
+    public void Change(float changeAmount)
 	{
 		currentHealth += changeAmount;
 		if (OnHealthChanged != null)
@@ -27,22 +28,23 @@ public class HealthManager : MonoBehaviour
 			//If the current health is <= 0 then...
 			if (currentHealth <= 0)
 			{
-				//set the player is dead bool to true
+				DeathSound();
+                //set the player is dead bool to true
 				playerIsDead = true;
 				enemyIsDead = true;
 				//check if the player is dead bool is true then..
 				if (playerIsDead)
 				{
-					//sets the player game object visibility to false.
-					gameObject.SetActive(false);
+                    
+                    
+                    //sets the player game object visibility to false.
+                   //gameObject.SetActive(false);
                     //Audio code here for when the player dies
-                    //deathSound.Play(); fix this!
-				}
+
+                }
 				else if (enemyIsDead)
 				{
-					gameObject.SetActive(false);
-					//Audio code here for when the player dies
-					//deathSound.Play(); fix this!
+					gameObject.SetActive(false);					
 				}
 			}
 		}
@@ -51,14 +53,19 @@ public class HealthManager : MonoBehaviour
 		//	theUIManager.UpdateHealthBar(currentHealth);
 		//}
 	}
-	
-	// Use this for initialization
-	void Start ()
+    public void DeathSound()
+    {
+        deathSoundSource.PlayOneShot(deathClip);
+    }
+    // Use this for initialization
+    void Start ()
 	{
 		enemyIsDead = false;
 		playerIsDead = false;
 		currentHealth = maxHealth;
-	}
+        deathSoundSource = GetComponent<AudioSource>();
+
+    }
 	
 	public void DamageObject(float damageAmount)
 	{

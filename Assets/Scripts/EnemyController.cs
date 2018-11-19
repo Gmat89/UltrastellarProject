@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public AudioSource EnemyDestroyed;
+    public BoxCollider EnemyCollider;
+    public Destroy DestroyScript;
 
 	private Rigidbody myRB;
 	public float moveSpeed;
@@ -31,6 +34,8 @@ public class EnemyController : MonoBehaviour
 		thePlayer = FindObjectOfType<PlayerController>();
 		//Find the HealthManager and subscribe to an event based on the health variable
 		GetComponent<HealthManager>().OnHealthChanged += DamageEffect;
+        DestroyScript = FindObjectOfType<Destroy>();
+        EnemyCollider = GetComponent<BoxCollider>();
 	}
 
 	void FixedUpdate()
@@ -63,12 +68,15 @@ public class EnemyController : MonoBehaviour
 		//Check if the current health of this object is <= 0 then....
 		if (theHealthManager.currentHealth <= 0)
 		{
+            EnemyCollider.enabled = !EnemyCollider.enabled;
+            EnemyDestroyed.Play();
 			//Spawns the death effect at the relative location
 			Instantiate(deathEffect, transform.position, transform.rotation);
-			//hide the death effect
-			gameObject.SetActive(false);
-			//Destory the particle effect
-			//Destroy(deathEffect);
+            //hide the death effect
+            //gameObject.SetActive(false);
+            //Destory the particle effect
+            //Destroy(deathEffect);
+            DestroyScript.OnDestroy();
 		}
 	}
 }
