@@ -5,6 +5,9 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    // Z rotation transform
+
+
 
     //Player move speed
     public float moveSpeed;
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour
 	public ParticleSystem deathEffect;
 	//Reference to the Health Manager
 	public HealthManager theHealthManager;
+
+    public Transform shipmesh;
 
     public BoxCollider myCollider;
 
@@ -92,9 +97,15 @@ public class PlayerController : MonoBehaviour
 	void Update()
 	{
 		moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-		moveVelocity = moveInput * moveSpeed;
-		//Check if the flash counter is greater than zero
-		if (flashCounter > 0)
+        moveVelocity = moveInput * moveSpeed;
+
+        //ship rotation
+        //shipmesh.localRotation = Quaternion.Euler(0,0,moveInput.x*100);
+        shipmesh.localRotation = Quaternion.Lerp(shipmesh.localRotation, Quaternion.Euler(0, 0, moveInput.x * 45),Time.deltaTime *10f);
+
+
+        //Check if the flash counter is greater than zero
+        if (flashCounter > 0)
 		{
 			//set the flash counter to the current time value then - from it(countdown)
 			flashCounter -= Time.deltaTime;

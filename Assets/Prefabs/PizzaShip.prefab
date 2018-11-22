@@ -404,7 +404,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 938e917e1f0ee8c46b2149281a68ce41, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6e62394059efbe5408b40d8995d30f94, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -534,7 +534,7 @@ MonoBehaviour:
   theUIManager: {fileID: 0}
   enemyIsDead: 0
   particleSpawned: 0
-  deathSoundSource: {fileID: 0}
+  deathSoundSource: {fileID: 82382615333333064}
   deathClip: {fileID: 0}
 --- !u!114 &114379837794846160
 MonoBehaviour:

@@ -13,7 +13,8 @@ public class PowerUpTemplate : MonoBehaviour
 	public ParticleSystem pickupParticle;
 	//The duration of the powerup
 	public float powerupDuration = 4.0f;
-	
+    public AudioSource PickupAudio;
+    public AudioClip AsteroidExplosion;
 
 
 
@@ -24,6 +25,11 @@ public class PowerUpTemplate : MonoBehaviour
 		theGunController = FindObjectOfType<GunController>();
 		//Declare the pickup Particle effect, find the particle system
 		pickupParticle = GetComponent<ParticleSystem>();
+        //pickup Audio
+        PickupAudio = GetComponent<AudioSource>();
+        // Explosion Audio
+        AsteroidExplosion = GetComponent<AudioClip>();
+        
 	}
 
 	// Update is called once per frame
@@ -43,7 +49,10 @@ public class PowerUpTemplate : MonoBehaviour
 			pickupParticle.Clear();
 			//Start the coroutine for the pickup
 			StartCoroutine(Pickup());
-		}
+            //Play Pickup Sound
+            PickupAudio.Play();
+
+        }
 	}
 
 	IEnumerator Pickup()
@@ -77,8 +86,10 @@ public class PowerUpTemplate : MonoBehaviour
 		//Reverse the effect on the player (reset back to default firing rate)
 		theGunController.timeBetweenShots += ROFPower;
 
-		//Destory the Pickup object
+
+        //Destory the Pickup object
 		Destroy(gameObject);
+   
 	}
 }
 

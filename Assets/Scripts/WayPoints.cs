@@ -18,13 +18,15 @@ public class WayPoints : MonoBehaviour
 	public GameObject pickUp;
 	//the effect when the object is destroyed
 	public ParticleSystem popEffect;
+   
 
-	/*void Start()
+    void Start()
 	{
-	
-	}*/
 
-	void Update()
+ 	
+	}
+
+    void Update()
 	{
 		//Rotate the object based on the rotSpeed variable on the Y axis
 		transform.Rotate(0,rotSpeed,0);
@@ -39,6 +41,7 @@ public class WayPoints : MonoBehaviour
 				//set the current value to zero
 				current = 0;
 			}
+         
 		}
 
 		//move the objects transform towards the current array of waypoints by each frame times the speed variable
@@ -58,13 +61,15 @@ public class WayPoints : MonoBehaviour
 			gameObject.SetActive(false);
 			//Spawn the particle effect at the relative location
 			Instantiate(popEffect, transform.position, transform.rotation);
-			//Remove the particle effect
-			popEffect.Clear(true);
+            //Remove the particle effect
+            popEffect.Clear(true);
 			//Destroy the asteroid gameObject
 			//Destroy(gameObject);
 			//Spawn the pickup in its place
 			Instantiate(pickUp, transform.position, transform.rotation);
-		}
+
+
+        }
 	}
 
 }
