@@ -5,8 +5,12 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-	//Player move speed
-	public float moveSpeed;
+    // Z rotation transform
+
+
+
+    //Player move speed
+    public float moveSpeed;
 	//Player rigidbody
 	private Rigidbody myRigidbody;
 	//Move Input
@@ -34,6 +38,10 @@ public class PlayerController : MonoBehaviour
 	//Reference to the Health Manager
 	public HealthManager theHealthManager;
 
+    public Transform shipmesh;
+
+    public BoxCollider myCollider;
+
 	//As soon as the game is played
 	void Awake()
 	{
@@ -56,10 +64,9 @@ public class PlayerController : MonoBehaviour
 		mainCamera = FindObjectOfType<Camera>();
 		//Find the HealthManager and subscribe to an event based on the health variable changing
 		GetComponent<HealthManager>().OnHealthChanged += RespondToHealthChanged;
-		GetComponent<HealthManager>().OnPlayerDeath += OnPlayerDeath;
-		theGameManager = FindObjectOfType<GameManager>();
 
-	}
+        myCollider = GetComponent<BoxCollider>();
+    }
 
 	//Respond to Damage
 	private void RespondToHealthChanged(float amount)
@@ -68,35 +75,37 @@ public class PlayerController : MonoBehaviour
 		flashCounter = flashLength;
 		//Set the players colour to red when damaged
 		rend.material.SetColor("_Color", Color.red);
-	}
 
-	public void OnPlayerDeath(float amount)
-	{
 		//Checks if the current health of this object is <= 0 then...
 		if (theHealthManager.currentHealth <= 0)
 		{
-			theHealthManager.playerIsDead = true;
-			//Spawns the death effect at the relative location
-			Instantiate(deathEffect, transform.position, transform.rotation);
-			//sets the particle effect visibility to false once it's finished playing
-			Destroy(gameObject);
-			//theHealthManager.playerIsDead = true;
-			//gameObject.SetActive(false);
-			//Destroy the particle effect
-			//Destroy(deathEffect);
-			//Load the gameover scene
-			//SceneManager.LoadScene("GameOver");
+                myCollider.enabled = !myCollider.enabled;
+                //Spawns the death effect at the relative location
+                 Instantiate(deathEffect, transform.position, transform.rotation);
+				//sets the particle effect visibility to false once it's finished playing
+				//gameObject.SetActive(false);
+				//Destroy the particle effect
+				Destroy(deathEffect);
+				//Load the gameover scene
+				//SceneManager.LoadScene("GameOver");
 		}
 	}
+   
 	
 
 	// Update is called once per frame
 	void Update()
 	{
 		moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-		moveVelocity = moveInput * moveSpeed;
-		//Check if the flash counter is greater than zero
-		if (flashCounter > 0)
+        moveVelocity = moveInput * moveSpeed;
+
+        //ship rotation
+        //shipmesh.localRotation = Quaternion.Euler(0,0,moveInput.x*100);
+        shipmesh.localRotation = Quaternion.Lerp(shipmesh.localRotation, Quaternion.Euler(0, 0, moveInput.x * 45),Time.deltaTime *10f);
+
+
+        //Check if the flash counter is greater than zero
+        if (flashCounter > 0)
 		{
 			//set the flash counter to the current time value then - from it(countdown)
 			flashCounter -= Time.deltaTime;
