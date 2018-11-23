@@ -1,43 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
 
-	public EnemyController theEnemyController;
+	//public EnemyController theEnemyController;
 	public GameObject thePlayerHealthBar;
 	public HealthManager theHealthManager;
-	public GameObject theEnemyHealthBar;
+	//public GameObject theEnemyHealthBar;
 
-	PlayerController findObjectOfType;
 	//EnemyController findObjofType;
 
 
 
-	public void Start()
+	public void Awake()
 	{
-
-		findObjectOfType = FindObjectOfType<PlayerController>();
-		theHealthManager = findObjectOfType.GetComponent<HealthManager>();
-		theHealthManager.OnHealthChanged += UpdateHealthBar;
-
-		//findObjofType = FindObjectOfType<EnemyController>();
-		//theHealthManager = findObjofType.GetComponent<HealthManager>(); Ask cam about fixing this 
-		theHealthManager.OnHealthChanged += UpdateHealthBar;
 		
-		theEnemyHealthBar = GameObject.Find("Bar");
+		FindObjectOfType<GameManager>().OnPlayerSpawned += OnPlayerSpawned;
+			
+		// TODO: Sub to player death and unsub health
+	}
+
+	private void OnPlayerSpawned(PlayerController obj)
+	{
+		//Find the health manager attached to the object with the player controller
+		theHealthManager = obj.GetComponent<HealthManager>();
+		//Subscribe to the Player controller/ health managers event OnHealthChanged and run the UpdateHealthbar function accordingly
+		obj.theHealthManager.OnHealthChanged += UpdateHealthBar;
 	}
 
 	public void Update()
 	{
-		
+
 	}
-	/*public void PlayGame()
-	{
-		Debug.Log("Game has Started");
-		theEventManager.StartGame();
-	}*/
 
 
 	public void UpdateHealthBar(float calc_Health)
@@ -51,9 +48,9 @@ public class UIManager : MonoBehaviour
 	{
 		//myHealth needs to be a value between zero and one
 		thePlayerHealthBar.transform.localScale = new Vector3(Mathf.Clamp(myHealth, 0, 1), thePlayerHealthBar.transform.localScale.y, thePlayerHealthBar.transform.localScale.z);
+		
+		//Doesnt work
 		//theEnemyHealthBar.transform.localScale = new Vector3(Mathf.Clamp(myHealth, 0, 1), theEnemyHealthBar.transform.localScale.y, theEnemyHealthBar.transform.localScale.z);
 	}
-
-
 }
 

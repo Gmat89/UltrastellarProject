@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour
 		mainCamera = FindObjectOfType<Camera>();
 		//Find the HealthManager and subscribe to an event based on the health variable changing
 		GetComponent<HealthManager>().OnHealthChanged += RespondToHealthChanged;
+		GetComponent<HealthManager>().OnPlayerDeath += OnPlayerDeath;
+		theGameManager = FindObjectOfType<GameManager>();
 
 	}
 
@@ -66,18 +68,24 @@ public class PlayerController : MonoBehaviour
 		flashCounter = flashLength;
 		//Set the players colour to red when damaged
 		rend.material.SetColor("_Color", Color.red);
+	}
 
+	public void OnPlayerDeath(float amount)
+	{
 		//Checks if the current health of this object is <= 0 then...
 		if (theHealthManager.currentHealth <= 0)
-			{
-				//Spawns the death effect at the relative location
-				Instantiate(deathEffect, transform.position, transform.rotation);
-				//sets the particle effect visibility to false once it's finished playing
-				gameObject.SetActive(false);
-				//Destroy the particle effect
-				//Destroy(deathEffect);
-				//Load the gameover scene
-				//SceneManager.LoadScene("GameOver");
+		{
+			theHealthManager.playerIsDead = true;
+			//Spawns the death effect at the relative location
+			Instantiate(deathEffect, transform.position, transform.rotation);
+			//sets the particle effect visibility to false once it's finished playing
+			Destroy(gameObject);
+			//theHealthManager.playerIsDead = true;
+			//gameObject.SetActive(false);
+			//Destroy the particle effect
+			//Destroy(deathEffect);
+			//Load the gameover scene
+			//SceneManager.LoadScene("GameOver");
 		}
 	}
 	

@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Bullet
   - EnemyBullet
+  - PlayerBullet
+  - Healthbar
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Lighting
   - Ground
   - Postprocessing
-  - 
+  - Player
   - 
   - 
   - 

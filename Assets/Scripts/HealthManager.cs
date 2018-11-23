@@ -7,15 +7,12 @@ public class HealthManager : MonoBehaviour
 	public float maxHealth;
 	public float currentHealth;
 	public bool playerIsDead;
-
 	public event Action<float> OnHealthChanged;
-	public event Action<float> OnHit;
-	public UIManager theUIManager;
-
+	public event Action<float> OnPlayerDeath;
+	public event Action<float> OnEnemyDeath;
+	
 	public bool enemyIsDead;
 	public bool particleSpawned;
-
-	//Add Public AudioSource here
 
 	//Starts an event when the health variable is changed
 	public void Change(float changeAmount)
@@ -27,36 +24,51 @@ public class HealthManager : MonoBehaviour
 			//If the current health is <= 0 then...
 			if (currentHealth <= 0)
 			{
-				//set the player is dead bool to true
-				playerIsDead = true;
-				enemyIsDead = true;
+				//if the objects tag equals enemy then..
+				if(gameObject.tag == "Enemy")
+					//set the enemy is dead bool to true
+					enemyIsDead = true;
+
+				//if the objects tag equals player then...
+				if (gameObject.tag == "Player")
+				{
+					//set the player is dead bool to true
+					playerIsDead = true;
+				}
+			
+				
 				//check if the player is dead bool is true then..
 				if (playerIsDead)
 				{
-					//sets the player game object visibility to false.
-					gameObject.SetActive(false);
-                    //Audio code here for when the player dies
-                    //deathSound.Play(); fix this!
+					// if the player death event is not null then run it
+					if (OnPlayerDeath != null)
+					{
+						OnPlayerDeath(0);
+					}
+					
 				}
+				//check if the enemy is dead bool is true then 
 				else if (enemyIsDead)
 				{
-					gameObject.SetActive(false);
-					//Audio code here for when the player dies
-					//deathSound.Play(); fix this!
+					//check if the on enemy death event is not null
+					if (OnEnemyDeath != null)
+					{
+						// run the event
+						OnEnemyDeath(0);
+					}
 				}
 			}
 		}
-		//if (OnHit != null)
-		//{
-		//	theUIManager.UpdateHealthBar(currentHealth);
-		//}
 	}
 	
 	// Use this for initialization
 	void Start ()
 	{
+		//set enemy is dead bool to false
 		enemyIsDead = false;
+		//set playe is dead bool to false
 		playerIsDead = false;
+		//Set the current health to the Max health value
 		currentHealth = maxHealth;
 	}
 	
@@ -65,6 +77,5 @@ public class HealthManager : MonoBehaviour
 		//take damage amount away from player health when it's hit based on the change event.
 		Change(-damageAmount);
 	}
-
 	
 }

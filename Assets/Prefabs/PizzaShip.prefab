@@ -288,7 +288,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1183678786351328}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 76.542114, y: 13.391612, z: 91.19352}
@@ -464,10 +464,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathSound: {fileID: 0}
-  maxHealth: 10
+  maxHealth: 5
   currentHealth: 0
   playerIsDead: 0
-  theUIManager: {fileID: 0}
   enemyIsDead: 0
   particleSpawned: 0
 --- !u!114 &114500473603768264
@@ -482,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAttacking: 0
-  bullet: {fileID: 114360861017018756, guid: a2bacf50ca66db24cb7e102b102301ef, type: 2}
+  bullet: {fileID: 114662850104228178, guid: a2bacf50ca66db24cb7e102b102301ef, type: 2}
   bulletSpeed: 3
   bulletSpawnPoint: {fileID: 4546397320113516}
   thePlayer: {fileID: 4317422540359288, guid: 51853b496cee45b4fa03ce3c31a5b5e0, type: 2}
@@ -505,11 +504,14 @@ MonoBehaviour:
   moveSpeed: 3
   thePlayer: {fileID: 114220421220066714, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
     type: 2}
+  thePlayerObject: {fileID: 1251562320027334, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
+    type: 2}
   flashLength: 0.3
   flashCounter: 0
   deathEffect: {fileID: 198352442773033964, guid: bef2986a238400141815b6797850c433,
     type: 2}
   theHealthManager: {fileID: 114452697441452348}
+  scoreToGive: 100
 --- !u!114 &114703155002883458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -665,7 +667,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1485414519398630}
-  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
@@ -674,10 +676,10 @@ RectTransform:
   - {fileID: 224492614500376008}
   m_Father: {fileID: 224583363402211906}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 49.4, y: 85.1}
+  m_AnchoredPosition: {x: 108, y: 53}
   m_SizeDelta: {x: 2, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224583363402211906
@@ -687,7 +689,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1183678786351328}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 707.2393}
+  m_LocalPosition: {x: 0, y: 0, z: 12.374487}
   m_LocalScale: {x: 0.01930301, y: 0.01930301, z: 0.01930301}
   m_Children:
   - {fileID: 4553561274109114}
@@ -698,6 +700,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1708.2223, y: 1044.3706}
+  m_AnchoredPosition: {x: -0.14052182, y: -5.4953764e-17}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
