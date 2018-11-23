@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
 	public void Awake()
 	{
-		
+		//On awake find the game manager and subscribe to the on player spawned event then listen for this scripts onplayerspawned event
 		FindObjectOfType<GameManager>().OnPlayerSpawned += OnPlayerSpawned;
 			
 		// TODO: Sub to player death and unsub health

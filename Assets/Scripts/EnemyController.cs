@@ -5,21 +5,30 @@ using UnityEngine.Assertions.Comparers;
 
 public class EnemyController : MonoBehaviour
 {
-
+	//enemies rigidbody
 	private Rigidbody myRB;
+	//enemy move speed
 	public float moveSpeed;
-
+	//reference to the player controller
 	public PlayerController thePlayer;
+	//reference to the player game object
 	public GameObject thePlayerObject;
 
+	//damage flash length
 	public float flashLength;
+	//damage flash counter
 	public float flashCounter;
-
+	//enemy renderer
 	private Renderer rend;
+	//flash colour
 	private Color storedColor;
+	//death particle effect
 	public ParticleSystem deathEffect;
+	//reference to the health manager
 	public HealthManager theHealthManager;
+	//reference to the score  manager
 	private ScoreManager theScoreManager;
+	//score to give when killed
 	public int scoreToGive;
 
 	// Use this for initialization
@@ -94,7 +103,7 @@ public class EnemyController : MonoBehaviour
 	public void EnemyDeath(float amount)
 	{
 		//Check if the enemy is dead bool is true in the HealthManager
-		if (theHealthManager.enemyIsDead)
+		if (theHealthManager.currentHealth <= 0)
 		{
 			//Add the score to the current score
 			theScoreManager.AddScore(scoreToGive);

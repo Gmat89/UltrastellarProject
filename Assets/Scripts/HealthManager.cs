@@ -3,24 +3,36 @@ using System;
 
 public class HealthManager : MonoBehaviour
 {
+	//audio source reference
     public AudioSource deathSound;
+	//the maximum health
 	public float maxHealth;
+	//the current health
 	public float currentHealth;
+	//check if the player is dead
 	public bool playerIsDead;
+	//event for when the health is changed
 	public event Action<float> OnHealthChanged;
+	//event for when the player dies
 	public event Action<float> OnPlayerDeath;
+	//event for when the enemy dies
 	public event Action<float> OnEnemyDeath;
-	
+	//check if the enemy is dead
 	public bool enemyIsDead;
+	//check if the particle has spawned
 	public bool particleSpawned;
 
 	//Starts an event when the health variable is changed
 	public void Change(float changeAmount)
 	{
+		//update the current health to the changed amount(damage)
 		currentHealth += changeAmount;
+		//check if the onhealthchanged event is not null
 		if (OnHealthChanged != null)
 		{
+			//run the onhealthchanged event
 			OnHealthChanged(changeAmount);
+
 			//If the current health is <= 0 then...
 			if (currentHealth <= 0)
 			{
@@ -43,6 +55,7 @@ public class HealthManager : MonoBehaviour
 					// if the player death event is not null then run it
 					if (OnPlayerDeath != null)
 					{
+						//run the onplayerdeath event
 						OnPlayerDeath(0);
 					}
 					
@@ -53,7 +66,7 @@ public class HealthManager : MonoBehaviour
 					//check if the on enemy death event is not null
 					if (OnEnemyDeath != null)
 					{
-						// run the event
+						// run the onenemydeath event
 						OnEnemyDeath(0);
 					}
 				}
@@ -74,7 +87,7 @@ public class HealthManager : MonoBehaviour
 	
 	public void DamageObject(float damageAmount)
 	{
-		//take damage amount away from player health when it's hit based on the change event.
+		//take damage amount away from current health when it's hit based on the change event.
 		Change(-damageAmount);
 	}
 	

@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
 	//Reference to the Health Manager
 	public HealthManager theHealthManager;
 
+	//ship mesh
+	public Transform shipMesh;
+
 	//As soon as the game is played
 	void Awake()
 	{
@@ -56,6 +59,7 @@ public class PlayerController : MonoBehaviour
 		mainCamera = FindObjectOfType<Camera>();
 		//Find the HealthManager and subscribe to an event based on the health variable changing
 		GetComponent<HealthManager>().OnHealthChanged += RespondToHealthChanged;
+		//Get the health manager and subscribe to the Onplayer death event and listen for when to call this scripts Onplayer death function
 		GetComponent<HealthManager>().OnPlayerDeath += OnPlayerDeath;
 		theGameManager = FindObjectOfType<GameManager>();
 
@@ -69,7 +73,7 @@ public class PlayerController : MonoBehaviour
 		//Set the players colour to red when damaged
 		rend.material.SetColor("_Color", Color.red);
 	}
-
+	//Run is when the player has died
 	public void OnPlayerDeath(float amount)
 	{
 		//Checks if the current health of this object is <= 0 then...
@@ -95,6 +99,10 @@ public class PlayerController : MonoBehaviour
 	{
 		moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 		moveVelocity = moveInput * moveSpeed;
+
+		//ship rotation
+		//shipmesh.localRotation = Quaternion.Euler(0,0,moveInput.x*100);
+		shipMesh.localRotation = Quaternion.Lerp(shipMesh.localRotation, Quaternion.Euler(0, 0, moveInput.x * 45), Time.deltaTime * 10f);
 		//Check if the flash counter is greater than zero
 		if (flashCounter > 0)
 		{

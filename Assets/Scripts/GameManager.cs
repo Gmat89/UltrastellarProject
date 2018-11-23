@@ -104,16 +104,19 @@ public class GameManager : MonoBehaviour
 
 	private void SpawnPlayer()
 	{
-		//Spawn the player at the players start position
+		//Spawn the next player at the player at the player start position
 		currentPlayer = Instantiate(thePlayerPrefab, playerStartPoint, transform.rotation);
+		//set the player start point to the current player position
 		playerStartPoint = currentPlayer.transform.position;
+		//get the current players health manager and subscribe to the onplayer death event then listen for the player death function call
 		currentPlayer.GetComponent<HealthManager>().OnPlayerDeath += PlayerDeath;
 		//set the player spawned bool to true
 		currentPlayer.GetComponent<HealthManager>().playerIsDead = false;
 		playerSpawned = true;
-
+		//check if the player has not spawned and if it hasnt then
 		if (OnPlayerSpawned != null)
 		{
+			//subscribe to the the onplayerspawned event
 			OnPlayerSpawned(currentPlayer.GetComponent<PlayerController>());
 		}
 	}
@@ -135,22 +138,35 @@ public class GameManager : MonoBehaviour
 	public IEnumerator RestartGameCo()
 	{
 		//When restarting
+
+		//set the score increasing bool to false
 		theScoreManager.scoreIncreasing = false;
+		//set the player spawned bool to false
 		playerSpawned = false;
+		//wait for x seconds before restarting
 		yield return new WaitForSeconds(0.5f);
 		//Once Restarted
+
+		//respawn the player
 		SpawnPlayer();
 		
-		//theUIManager.thePlayerHealthBar = GameObject.FindGameObjectWithTag("Healthbar");
-		theWaveSpawner.state = SpawnState.COUNTING;
+		//set the wave spawner state to counting to respawn enemies 
+		//theWaveSpawner.state = SpawnState.COUNTING;
+	
+		//set the current player position to the player start point
 		currentPlayer.transform.position = playerStartPoint;
+
+		//TODO: Enemy spawn reset
+		//reset the enemy spawn points (not working)
 		//theEnemySpawnPoints[0].position = enemySpawnerStartPos[0];
-		//thePlayerPrefab.gameObject.SetActive(true);
+		
+		//set the current score to 0
 		theScoreManager.scoreCount = 0;
+		//set the score increasing bool to true
 		theScoreManager.scoreIncreasing = true;
 	}
 
-
+	//TODO: finish creating the pause function (hacky)
 	public void PauseGame()
 	{
 		if (Input.GetKeyDown(KeyCode.P))

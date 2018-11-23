@@ -249,7 +249,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 938e917e1f0ee8c46b2149281a68ce41, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6e62394059efbe5408b40d8995d30f94, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -354,8 +354,8 @@ MonoBehaviour:
   theEnemy: {fileID: 4213574392164592}
   Distance: {x: 0, y: 0, z: 0}
   DistanceFrom: 0
-  DistanceToPlayer: 20
-  Timer: 2
+  DistanceToPlayer: 500
+  Timer: 1
 --- !u!114 &114290600778960324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,14 +378,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38cee8a5f5e84a24d850fb8e883e63f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  deathSound: {fileID: 82926168635951488}
+  maxHealth: 5
   currentHealth: 0
   playerIsDead: 0
-  theUIManager: {fileID: 0}
   enemyIsDead: 0
   particleSpawned: 0
-  deathSoundSource: {fileID: 0}
-  deathClip: {fileID: 0}
 --- !u!114 &114562773697481538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,11 +395,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c753945fdb25a8f4d8c7828dbe03d7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyDestroyed: {fileID: 82926168635951488}
-  EnemyCollider: {fileID: 0}
-  DestroyScript: {fileID: 0}
-  moveSpeed: 3
+  moveSpeed: 5
   thePlayer: {fileID: 114220421220066714, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
+    type: 2}
+  thePlayerObject: {fileID: 1251562320027334, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
     type: 2}
   flashLength: 0.3
   flashCounter: 0
@@ -409,3 +406,4 @@ MonoBehaviour:
     type: 2}
   theHealthManager: {fileID: 114605218124024334, guid: 97aa30f39c912fa4c97657135cc5e24c,
     type: 2}
+  scoreToGive: 100

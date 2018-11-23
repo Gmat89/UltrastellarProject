@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EnemyBulletController : MonoBehaviour
 {
+	//bullet speed
 	public float speed;
+	//life of the bullet before it destroys itself
 	public float lifeTime;
+	//amount of damage
 	public int damageToGive;
 
 	// Use this for initialization

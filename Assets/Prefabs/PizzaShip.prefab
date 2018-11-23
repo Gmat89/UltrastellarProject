@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 65562979625386460}
   - component: {fileID: 82382615333333064}
   - component: {fileID: 23518073465963978}
-  - component: {fileID: 114805081091746296}
   m_Layer: 0
   m_Name: PizzaShip
   m_TagString: Enemy
@@ -404,7 +403,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6e62394059efbe5408b40d8995d30f94, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 45fb0a6709ddfbf428650d4a31e00c72, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -415,7 +414,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1.3391113
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -528,14 +527,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38cee8a5f5e84a24d850fb8e883e63f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  deathSound: {fileID: 82382615333333064}
+  maxHealth: 3
   currentHealth: 0
   playerIsDead: 0
-  theUIManager: {fileID: 0}
   enemyIsDead: 0
   particleSpawned: 0
-  deathSoundSource: {fileID: 82382615333333064}
-  deathClip: {fileID: 0}
 --- !u!114 &114379837794846160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -585,14 +582,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAttacking: 0
-  bullet: {fileID: 114360861017018756, guid: a2bacf50ca66db24cb7e102b102301ef, type: 2}
+  bullet: {fileID: 114662850104228178, guid: a2bacf50ca66db24cb7e102b102301ef, type: 2}
   bulletSpeed: 3
   bulletSpawnPoint: {fileID: 4689131589815016}
   thePlayer: {fileID: 4317422540359288, guid: 51853b496cee45b4fa03ce3c31a5b5e0, type: 2}
   theEnemy: {fileID: 224936337788071624}
   Distance: {x: 0, y: 0, z: 0}
   DistanceFrom: 0
-  DistanceToPlayer: 20
+  DistanceToPlayer: 500
   Timer: 2
 --- !u!114 &114686994898848944
 MonoBehaviour:
@@ -605,28 +602,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c753945fdb25a8f4d8c7828dbe03d7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyDestroyed: {fileID: 82382615333333064}
-  EnemyCollider: {fileID: 0}
-  DestroyScript: {fileID: 0}
   moveSpeed: 3
   thePlayer: {fileID: 114220421220066714, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
+    type: 2}
+  thePlayerObject: {fileID: 1251562320027334, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
     type: 2}
   flashLength: 0.3
   flashCounter: 0
   deathEffect: {fileID: 198352442773033964, guid: bef2986a238400141815b6797850c433,
     type: 2}
   theHealthManager: {fileID: 114144472240138012}
---- !u!114 &114805081091746296
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1017956525842372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719e33038dc1c5140adb5d97929ad2e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  scoreToGive: 50
 --- !u!114 &114848919704680008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -816,6 +802,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.4944377, y: 0.027045986}
+  m_AnchoredPosition: {x: 437.25525, y: 165.2323}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
