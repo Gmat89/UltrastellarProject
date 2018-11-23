@@ -8,11 +8,13 @@ public class GunController : MonoBehaviour
 
 	//Note: this script can be used on different types of guns/powerUps by changing the variables
 	public bool isFiring;
-
-	public BulletController bullet;
+	//Reference to the bulletcontroller
+	public PlayerBulletController bullet;
+	//Bullet speed
 	public float bulletSpeed;
-	//Calculates
+	//Calculates time between each shot
 	public float timeBetweenShots = 0.3333f;
+	//Counts how many shots
 	public float shotCounter;
 	//point in time
 	private float timestamp;
@@ -39,7 +41,7 @@ public class GunController : MonoBehaviour
 				//sets the firing bool to true
 				isFiring = true;
 				//Spawns the bullet at the location of the Bullet Spawn Point. 
-				BulletController newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+				PlayerBulletController newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 				//Sets the timestamp to the current game time while adding the timeBetweenShots variable
 				timestamp = Time.time + timeBetweenShots;
 				//Sets the spawned bullets speed to the user defined bullet speed variable in the editor.
@@ -48,5 +50,6 @@ public class GunController : MonoBehaviour
 		}
 	
 	}
+
 }
 

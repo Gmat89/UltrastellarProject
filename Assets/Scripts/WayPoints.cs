@@ -47,7 +47,7 @@ public class WayPoints : MonoBehaviour
 
 	}
 
-	public void OnCollisionEnter(Collision other)
+	public void OnTriggerEnter(Collider other)
 	{
 		//Check if the objected that has been collided with has a tag of bullet
 		if (other.gameObject.tag == "Bullet")

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -49,15 +50,15 @@ public class ScoreManager : MonoBehaviour
 		hiScoreText.text = "High Score: " + Mathf.Round(hiScoreCount);
 	}
 
-	//call this function to add points to score on whatever event
+	//call this function to add points to score when needed
 	public void AddScore(int pointsToAdd)
 	{
 		scoreCount += pointsToAdd;
-	}
-
-	void OnDestroy()
-	{
-
+		//check if the the OnScoreAdded event is null, if it isnt then
+		//if (OnScoreAdded != null)
+		//{
+		//	OnScoreAdded(0);
+		//}
 	}
 }
 
