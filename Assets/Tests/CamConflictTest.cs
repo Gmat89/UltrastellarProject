@@ -11,6 +11,7 @@ public class CamConflictTest : MonoBehaviour
 		print("cam test");
 		print("kyles woz ere");
 		print("cam test 2");
+		print("barryz gorn home");
 	}
 
 	// Update is called once per frame
