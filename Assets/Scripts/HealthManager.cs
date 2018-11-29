@@ -19,8 +19,7 @@ public class HealthManager : MonoBehaviour
 	public event Action<float> OnEnemyDeath;
 	//check if the enemy is dead
 	public bool enemyIsDead;
-	//check if the particle has spawned
-	public bool particleSpawned;
+	
 
 	//Starts an event when the health variable is changed
 	public void Change(float changeAmount)

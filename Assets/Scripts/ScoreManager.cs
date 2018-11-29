@@ -23,6 +23,7 @@ public class ScoreManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		//scoreText = GetComponent<Text>();
 		if (PlayerPrefs.HasKey("HighScore"))
 		{
 			//store the hiScore obtained by the player in player prefs

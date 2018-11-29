@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 //Spawn states definition
-public enum SpawnState { SPAWNING, WAITING, COUNTING };
+public enum SpawnState { SPAWNING, WAITING, COUNTING }
 
 public class WaveSpawner : MonoBehaviour
 {
+
 	//Allows us to change the values of the instances of this class inside Unity Inspector
 	[System.Serializable]
 	//Class that is stored in an array
@@ -15,7 +16,7 @@ public class WaveSpawner : MonoBehaviour
 		//Name of the wave(Announce)
 		public string name;
 		//Prefabs transform to be instantiated
-		public Transform enemy;
+		public Transform[] enemies;
 		//The count
 		public int count;
 		//The spawn rate
@@ -159,8 +160,13 @@ public class WaveSpawner : MonoBehaviour
 		//Begin loop, this will run the number of enemies that we want to spawn.
 		for (int i = 0; i < _wave.count; i++)
 		{
-			//Spawn enemy function
-			SpawnEnemy(_wave.enemy);
+			for (int e = 0; e < _wave.enemies.Length; e++)
+			{
+				//Spawn enemy function
+				SpawnEnemy(_wave.enemies[e]);
+				//Wait for a set amount of time before spawning the next wave
+				yield return new WaitForSeconds(1f / _wave.rate);
+			}
 			//Wait for a set amount of time before spawning the next wave
 			yield return new WaitForSeconds(1f / _wave.rate);
 		}

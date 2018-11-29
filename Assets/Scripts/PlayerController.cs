@@ -8,25 +8,25 @@ public class PlayerController : MonoBehaviour
 	//Player move speed
 	public float moveSpeed;
 	//Player rigidbody
-	private Rigidbody myRigidbody;
+	public Rigidbody myRigidbody;
 	//Move Input
-	private Vector3 moveInput;
+	public Vector3 moveInput;
 	//Move velocity
-	private Vector3 moveVelocity;
+	public Vector3 moveVelocity;
 	//The main game camera
-	private Camera mainCamera;
+	public Camera mainCamera;
 	//The reference to the gun
 	public GunController theGun;
 	//Bool for checking if the player is using a controller
 	public bool useController;
 	//Reference to the Game Manager
-	private GameManager theGameManager;
+	public GameManager theGameManager;
 	//Damage Flashlength
 	public float flashLength;
 	//Damage flash counter
 	public float flashCounter;
 	//This objects renderer
-	private Renderer rend;
+	public Renderer rend;
 	//A Custom colour that is stored
 	private Color storedColor;
 	//The Particle effect upon death
@@ -101,8 +101,9 @@ public class PlayerController : MonoBehaviour
 		moveVelocity = moveInput * moveSpeed;
 
 		//ship rotation
-		//shipmesh.localRotation = Quaternion.Euler(0,0,moveInput.x*100);
+		shipMesh.localRotation = Quaternion.Euler(0,0,moveInput.x*100);
 		shipMesh.localRotation = Quaternion.Lerp(shipMesh.localRotation, Quaternion.Euler(0, 0, moveInput.x * 45), Time.deltaTime * 10f);
+
 		//Check if the flash counter is greater than zero
 		if (flashCounter > 0)
 		{
@@ -131,7 +132,7 @@ public class PlayerController : MonoBehaviour
 				//Determine where the player is looking, cast the ray to the length of distance
 				Vector3 pointToLook = cameraRay.GetPoint(rayLength);
 				//Visualise the raycast
-				Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+				Debug.DrawLine(cameraRay.origin, pointToLook, Color.white);
 				//Show where the plaeyr is looking
 				transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
 			}
