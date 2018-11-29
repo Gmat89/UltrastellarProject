@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fef87ce9b26ffe14d88e56a0bcad5908
+guid: 4580997412f469e479979fd2c34818f0
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -7,7 +7,8 @@ ModelImporter:
     100002: pCube2
     400000: //RootNode
     400002: pCube2
-    2100000: pCube2Mat
+    2100000: lambert3SG
+    2100002: initialShadingGroup
     2300000: pCube2
     3300000: pCube2
     4300000: pCube2
@@ -83,7 +84,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

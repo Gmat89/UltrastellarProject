@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
 	// OnPlayerSpawn
 	public event Action<PlayerController> OnPlayerSpawned;
+
 	// OnPlayerdeath
 	public event Action<PlayerController> OnPlayerHasDied;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
 
 	//Reference to the Wave Spawner
 	private WaveSpawner theWaveSpawner;
+
 	public UIManager theUIManager;
 
 	//Reference to the WaveSpawner Spawn Points
@@ -49,7 +51,8 @@ public class GameManager : MonoBehaviour
 
 
 
-	public static GameManager instance = null; //Static instance of GameManager which allows it to be accessed by any other script.
+	public static GameManager instance = null
+		; //Static instance of GameManager which allows it to be accessed by any other script.
 
 	//Awake is always called before any Start functions
 	void Awake()
@@ -149,45 +152,24 @@ public class GameManager : MonoBehaviour
 
 		//respawn the player
 		SpawnPlayer();
-		
+
 		//set the wave spawner state to counting to respawn enemies 
 		//theWaveSpawner.state = SpawnState.COUNTING;
-	
+
 		//set the current player position to the player start point
 		currentPlayer.transform.position = playerStartPoint;
 
 		//TODO: Enemy spawn reset
 		//reset the enemy spawn points (not working)
 		//theEnemySpawnPoints[0].position = enemySpawnerStartPos[0];
-		
+
 		//set the current score to 0
 		theScoreManager.scoreCount = 0;
 		//set the score increasing bool to true
 		theScoreManager.scoreIncreasing = true;
 	}
 
-	//TODO: finish creating the pause function (hacky)
-	public void PauseGame()
-	{
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			StartCoroutine("Pause");
-		}
-
-	}
-	//Pause game coroutine
-	private IEnumerator Pause(int p)
-	{
-		gameIsRunning = false;
-		Time.timeScale = 0.1f;
-		float pauseEndTime = Time.realtimeSinceStartup + 1;
-		while (Time.realtimeSinceStartup < pauseEndTime)
-		{
-			yield return 0;
-		}
-		Time.timeScale = 1;
-	}
-
-
-
 }
+
+
+

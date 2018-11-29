@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1440322795488210}
+  m_RootGameObject: {fileID: 1317174328819666}
   m_IsPrefabAsset: 1
---- !u!1 &1208312842870586
+--- !u!1 &1173879570112006
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4277062840694048}
-  - component: {fileID: 33625969684876066}
-  - component: {fileID: 23184819149535928}
+  - component: {fileID: 4839735421097554}
+  - component: {fileID: 33977843927157286}
+  - component: {fileID: 23609411691452066}
   m_Layer: 0
   m_Name: pCube2
   m_TagString: Untagged
@@ -28,14 +28,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1440322795488210
+--- !u!1 &1317174328819666
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4467293547717890}
+  - component: {fileID: 4289760510908534}
   m_Layer: 0
   m_Name: herojet
   m_TagString: Untagged
@@ -43,39 +43,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4277062840694048
+--- !u!4 &4289760510908534
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1208312842870586}
+  m_GameObject: {fileID: 1317174328819666}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0305165, y: 0.21048, z: -1.4452137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4839735421097554}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4839735421097554
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1173879570112006}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4467293547717890}
+  m_Father: {fileID: 4289760510908534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4467293547717890
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1440322795488210}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.3318, y: 0.57073, z: 11.25}
-  m_LocalScale: {x: 0.5093554, y: 0.5093554, z: 0.5093554}
-  m_Children:
-  - {fileID: 4277062840694048}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!23 &23184819149535928
+--- !u!23 &23609411691452066
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1208312842870586}
+  m_GameObject: {fileID: 1173879570112006}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,7 +85,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e184d6e23e01e1e4a9e8feaa3be1ab40, type: 2}
+  - {fileID: 2100000, guid: 4580997412f469e479979fd2c34818f0, type: 3}
+  - {fileID: 2100002, guid: 4580997412f469e479979fd2c34818f0, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,10 +106,10 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33625969684876066
+--- !u!33 &33977843927157286
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1208312842870586}
-  m_Mesh: {fileID: 4300000, guid: fef87ce9b26ffe14d88e56a0bcad5908, type: 3}
+  m_GameObject: {fileID: 1173879570112006}
+  m_Mesh: {fileID: 4300000, guid: 4580997412f469e479979fd2c34818f0, type: 3}

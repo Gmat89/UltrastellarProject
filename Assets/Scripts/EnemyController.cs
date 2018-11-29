@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
 	//damage flash counter
 	public float flashCounter;
 	//enemy renderer
-	private Renderer rend;
+	public Renderer rend;
 	//flash colour
 	private Color storedColor;
 	//death particle effect
@@ -95,7 +95,7 @@ public class EnemyController : MonoBehaviour
 		//Set the flash counter value to the amount of the flash length
 		flashCounter = flashLength;
 		//Sets the renderers flash colour from the stored colour
-		rend.material.SetColor("_Color", Color.white);
+		rend.material.SetColor("_Color", Color.red);
 		//Check if the current health of this object is <= 0 then....
 		
 	}
