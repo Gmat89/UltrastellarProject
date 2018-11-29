@@ -9,6 +9,7 @@ public class CamConflictTest : MonoBehaviour
 	void Start()
 	{
 		print("cam test");
+		print("kyles woz ere");
 	}
 
 	// Update is called once per frame
