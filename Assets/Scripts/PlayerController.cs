@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 	void Start ()
 	{
 		//Find this objects renderer
-		rend = GetComponent<Renderer>();
+		rend = GetComponentInChildren<Renderer>();
 		//Create a stored colour value on the renderer
 		storedColor = rend.material.GetColor("_Color");
 		//Find this objects rigidbody
@@ -82,12 +82,8 @@ public class PlayerController : MonoBehaviour
 			theHealthManager.playerIsDead = true;
 			//Spawns the death effect at the relative location
 			Instantiate(deathEffect, transform.position, transform.rotation);
-			//sets the particle effect visibility to false once it's finished playing
+			//Destroys death effect particle effect
 			Destroy(gameObject);
-			//theHealthManager.playerIsDead = true;
-			//gameObject.SetActive(false);
-			//Destroy the particle effect
-			//Destroy(deathEffect);
 			//Load the gameover scene
 			//SceneManager.LoadScene("GameOver");
 		}
@@ -101,8 +97,8 @@ public class PlayerController : MonoBehaviour
 		moveVelocity = moveInput * moveSpeed;
 
 		//ship rotation
-		shipMesh.localRotation = Quaternion.Euler(0,0,moveInput.x*100);
-		shipMesh.localRotation = Quaternion.Lerp(shipMesh.localRotation, Quaternion.Euler(0, 0, moveInput.x * 45), Time.deltaTime * 10f);
+		//shipMesh.localRotation = Quaternion.Euler(0,0,moveInput.x*100);
+		shipMesh.localRotation = Quaternion.Lerp(shipMesh.localRotation, Quaternion.Euler(0, 0, moveInput.x * 65), Time.deltaTime * 3f);
 
 		//Check if the flash counter is greater than zero
 		if (flashCounter > 0)
@@ -132,9 +128,14 @@ public class PlayerController : MonoBehaviour
 				//Determine where the player is looking, cast the ray to the length of distance
 				Vector3 pointToLook = cameraRay.GetPoint(rayLength);
 				//Visualise the raycast
-				Debug.DrawLine(cameraRay.origin, pointToLook, Color.white);
+				//Debug.DrawLine(cameraRay.origin, pointToLook, Color.white);
+				
 				//Show where the plaeyr is looking
-				transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+				//transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+				Vector3 lookAtPoint = new Vector3(pointToLook.x, transform.position.y,pointToLook.z);
+				Vector3 directionToLookAt = lookAtPoint - transform.position;
+				Quaternion lookRotation = Quaternion.LookRotation(directionToLookAt);
+				transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 3f);
 			}
 			//If the fire button is pressed then fire the gun
 			if (Input.GetMouseButtonDown(0))

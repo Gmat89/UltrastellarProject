@@ -37,9 +37,14 @@ public class GameManager : MonoBehaviour
 
 	public UIManager theUIManager;
 
+	//Player Respawn effect
+	public ParticleSystem respawnEffect;
 	//Reference to the WaveSpawner Spawn Points
 	//public Transform[] theEnemySpawnPoints;
 	//public Vector3[] enemySpawnerStartPos;
+
+	public static bool GameIsPaused = false;
+	public GameObject pauseMenuUI;
 
 	public GameObject currentPlayer;
 	public int spawnPosAmount;
@@ -88,21 +93,66 @@ public class GameManager : MonoBehaviour
 		//thePlayerPrefab.GetComponent<HealthManager>().OnPlayerDeath += RestartGame;
 		theUIManager = FindObjectOfType<UIManager>();
 		//enemySpawnerStartPos[0] = theEnemySpawnPoints[0].position;
+		pauseMenuUI = GameObject.Find("PauseCanvas");
 	}
 
 	private void PlayerDeath(float obj)
 	{
 		//Unsub from their ondeath (or you'll get nulls)
-//		currentPlayer.GetComponent<HealthManager>().OnPlayerDeath -= PlayerDeath;
+		//currentPlayer.GetComponent<HealthManager>().OnPlayerDeath -= PlayerDeath;
 		Destroy(currentPlayer);
 		if (OnPlayerHasDied != null) OnPlayerHasDied(currentPlayer.GetComponent<PlayerController>());
 		RestartGame();
-
 	}
 
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			if (GameIsPaused)
+			{
+				ResumeGame();
+			}
+			else
+			{
+				PauseGame();
+			}
+		}
+	}
+	public void ResumeGame()
+	{
+		pauseMenuUI.SetActive(false);
+		Time.timeScale = 1f;
+		GameIsPaused = false;
+	}
 
+	void PauseGame()
+	{
+		pauseMenuUI.SetActive(true);
+		Time.timeScale = 0f;
+		GameIsPaused = true;
+	}
+
+	public void PlayGame()
+	{
+		SceneManager.LoadScene("UltraStellarTest");
+		theScoreManager.gameObject.SetActive(true);
+		theWaveSpawner.gameObject.SetActive(true);
+	}
+
+	public void LoadMainMenu()
+	{
+		Time.timeScale = 1f;
+		SceneManager.LoadScene("Menu");
+		theScoreManager.gameObject.SetActive(false);
+		theWaveSpawner.gameObject.SetActive(false);
+	}
+
+	public void QuitGame()
+	{
+		Debug.Log("Quitting Game");
+		GameManager.instance = null;
+		Application.Quit();
 	}
 
 	private void SpawnPlayer()
@@ -121,6 +171,7 @@ public class GameManager : MonoBehaviour
 		{
 			//subscribe to the the onplayerspawned event
 			OnPlayerSpawned(currentPlayer.GetComponent<PlayerController>());
+			Instantiate(respawnEffect,playerStartPoint, transform.rotation);
 		}
 	}
 
@@ -128,13 +179,6 @@ public class GameManager : MonoBehaviour
 	{
 		StartCoroutine("RestartGameCo");
 	}
-
-
-	public void OnApplicationQuit()
-	{
-		GameManager.instance = null;
-	}
-
 
 
 	//Restart the game
