@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 		; //Static instance of GameManager which allows it to be accessed by any other script.
 
 	//Awake is always called before any Start functions
-	void Awake()
+	/*void Awake()
 	{
 		//Check if instance already exists
 		if (instance == null)
@@ -75,12 +75,16 @@ public class GameManager : MonoBehaviour
 
 		//Sets this to not be destroyed when reloading scene
 		DontDestroyOnLoad(gameObject);
-	}
+
+		//pauseMenuUI = GameObject.Find("PauseCanvas");
+		
+	}*/
 
 
 	// Use this for initialization
 	void Start()
 	{
+		OnLevelLoaded(1);
 		//SceneManager.LoadScene("");
 		SpawnPlayer();
 		//Set the game is running bool to true
@@ -93,9 +97,21 @@ public class GameManager : MonoBehaviour
 		//thePlayerPrefab.GetComponent<HealthManager>().OnPlayerDeath += RestartGame;
 		theUIManager = FindObjectOfType<UIManager>();
 		//enemySpawnerStartPos[0] = theEnemySpawnPoints[0].position;
-		pauseMenuUI = GameObject.Find("PauseCanvas");
+		//pauseMenuUI = GameObject.Find("PauseMenu");
 	}
 
+	void OnLevelLoaded(int level)
+	{
+		if (level == 1)
+			Debug.Log("Code Made it here");
+		{
+			GameManagerReferences GMreference = GameObject.Find("DelayedSending").GetComponent<GameManagerReferences>();
+			controller = GMreference.PController;
+			theUIManager = GMreference.UIManagerReference;
+			pauseMenuUI = GMreference.PauseMenu;
+			currentPlayer = GMreference.theCurrentPlayerRef;
+		}
+	}
 	private void PlayerDeath(float obj)
 	{
 		//Unsub from their ondeath (or you'll get nulls)
@@ -136,16 +152,16 @@ public class GameManager : MonoBehaviour
 	public void PlayGame()
 	{
 		SceneManager.LoadScene("UltraStellarTest");
-		theScoreManager.gameObject.SetActive(true);
-		theWaveSpawner.gameObject.SetActive(true);
+		//theScoreManager.gameObject.SetActive(true);
+		//theWaveSpawner.gameObject.SetActive(true);
 	}
 
 	public void LoadMainMenu()
 	{
 		Time.timeScale = 1f;
 		SceneManager.LoadScene("Menu");
-		theScoreManager.gameObject.SetActive(false);
-		theWaveSpawner.gameObject.SetActive(false);
+		//theScoreManager.gameObject.SetActive(false);
+		//theWaveSpawner.gameObject.SetActive(false);
 	}
 
 	public void QuitGame()

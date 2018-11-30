@@ -181,7 +181,4 @@ public class PlayerController : MonoBehaviour
 		//Set the rigidbody velocity equal to the moveVelocity variable.
 		myRigidbody.velocity = moveVelocity;
 	}
-
-
-
 }
