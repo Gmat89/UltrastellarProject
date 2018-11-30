@@ -9,6 +9,7 @@ ModelImporter:
     400002: pCube2
     2100000: lambert3SG
     2100002: initialShadingGroup
+    2100004: pCube2Mat
     2300000: pCube2
     3300000: pCube2
     4300000: pCube2

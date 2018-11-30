@@ -7,7 +7,7 @@ public enum SpawnState { SPAWNING, WAITING, COUNTING }
 
 public class WaveSpawner : MonoBehaviour
 {
-
+    public AudioSource EnemySpawn;
 	//Allows us to change the values of the instances of this class inside Unity Inspector
 	[System.Serializable]
 	//Class that is stored in an array
@@ -187,6 +187,7 @@ public class WaveSpawner : MonoBehaviour
 		Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 		//Spawn the enemy at the spawn point position and spawn point rotation
 		Instantiate(_enemy, _sp.position, _sp.rotation);
+        EnemySpawn.Play();
 	}
 
 }
