@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
 	{
 		OnLevelLoaded(1);
 		//SceneManager.LoadScene("");
-		SpawnPlayer();
+		//SpawnPlayer();
 		//Set the game is running bool to true
 		gameIsRunning = true;
 		//find the ScoreManager
@@ -103,14 +103,17 @@ public class GameManager : MonoBehaviour
 	void OnLevelLoaded(int level)
 	{
 		if (level == 1)
-			Debug.Log("Code Made it here");
 		{
+			SpawnPlayer();
+		}
+			//Debug.Log("Code Made it here");
+		/*{
 			GameManagerReferences GMreference = GameObject.Find("DelayedSending").GetComponent<GameManagerReferences>();
 			controller = GMreference.PController;
 			theUIManager = GMreference.UIManagerReference;
 			pauseMenuUI = GMreference.PauseMenu;
 			currentPlayer = GMreference.theCurrentPlayerRef;
-		}
+		}*/
 	}
 	private void PlayerDeath(float obj)
 	{
