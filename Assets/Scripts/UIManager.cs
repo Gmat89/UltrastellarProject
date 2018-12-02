@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
 
 	//public EnemyController theEnemyController;
 	public GameObject thePlayerHealthBar;
-	public HealthManager theHealthManager;
-	//public GameObject theEnemyHealthBar;
+   	public HealthManager theHealthManager;
+ 	//public GameObject theEnemyHealthBar;
 
 	//EnemyController findObjofType;
 
@@ -33,7 +34,7 @@ public class UIManager : MonoBehaviour
 
 	public void Update()
 	{
-
+        
 	}
 
 
@@ -46,11 +47,11 @@ public class UIManager : MonoBehaviour
 
 	public void SetHealthBar(float myHealth)
 	{
-		//myHealth needs to be a value between zero and one
-		thePlayerHealthBar.transform.localScale = new Vector3(Mathf.Clamp(myHealth, 0, 1), thePlayerHealthBar.transform.localScale.y, thePlayerHealthBar.transform.localScale.z);
-		
-		//Doesnt work
-		//theEnemyHealthBar.transform.localScale = new Vector3(Mathf.Clamp(myHealth, 0, 1), theEnemyHealthBar.transform.localScale.y, theEnemyHealthBar.transform.localScale.z);
-	}
+        //myHealth needs to be a value between zero and one
+        thePlayerHealthBar.transform.localScale = new Vector3(Mathf.Clamp(myHealth, 0, 1), thePlayerHealthBar.transform.localScale.y, thePlayerHealthBar.transform.localScale.z);
+              
+        //Doesnt work
+        //theEnemyHealthBar.transform.localScale = new Vector3(Mathf.Clamp(myHealth, 0, 1), theEnemyHealthBar.transform.localScale.y, theEnemyHealthBar.transform.localScale.z);
+    }
 }
 

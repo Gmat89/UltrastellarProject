@@ -47,7 +47,7 @@ public class ScoreManager : MonoBehaviour
 			PlayerPrefs.SetFloat("HighScore", hiScoreCount);
 		}
 		//show the score textComponent values (unity does the math lol)
-		scoreText.text = "Score: " + Mathf.Round(scoreCount);
+		scoreText.text = ""+ Mathf.Round(scoreCount);
 		hiScoreText.text = "High Score: " + Mathf.Round(hiScoreCount);
 	}
 
