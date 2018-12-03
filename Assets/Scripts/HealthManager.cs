@@ -35,21 +35,21 @@ public class HealthManager : MonoBehaviour
 			//If the current health is <= 0 then...
 			if (currentHealth <= 0)
 			{
-				//if the objects tag equals enemy then..
-				if(gameObject.tag == "Enemy")
-					//set the enemy is dead bool to true
-					enemyIsDead = true;
-
+				
 				//if the objects tag equals player then...
 				if (gameObject.tag == "Player")
 				{
 					//set the player is dead bool to true
 					playerIsDead = true;
 				}
-			
-				
-				//check if the player is dead bool is true then..
-				if (playerIsDead)
+
+                //if the objects tag equals enemy then..
+                if (gameObject.tag == "Enemy")
+                    //set the enemy is dead bool to true
+                    enemyIsDead = true;
+                
+                //check if the player is dead bool is true then..
+                if (playerIsDead)
 				{
 					// if the player death event is not null then run it
 					if (OnPlayerDeath != null)
