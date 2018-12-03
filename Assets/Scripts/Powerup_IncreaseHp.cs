@@ -17,8 +17,8 @@ public class Powerup_IncreaseHp : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        healthManager = FindObjectOfType<HealthManager>();
-        Debug.Log(healthManager.maxHealth);
+        
+        //Debug.Log(healthManager.maxHealth);
         //Declare the pickup Particle effect, find the particle system
         pickupParticle = GetComponent<ParticleSystem>();
     }
@@ -28,6 +28,8 @@ public class Powerup_IncreaseHp : MonoBehaviour
     {
         healthManager.currentHealth += healthIncrease;
         Debug.Log(healthManager.currentHealth);
+        
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -35,6 +37,7 @@ public class Powerup_IncreaseHp : MonoBehaviour
         //If the object that has been collided with is the Player
         if (other.gameObject.tag == "Player")
         {
+            healthManager = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>();
             //Clear the particle effect upon collision once its finished playing
             pickupParticle.Clear();
             //Start the coroutine for the pickup

@@ -27,9 +27,13 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
 
     public void IncreaseMaxHp()
     {
+        //If the object that has been collided with is the Player
+        if (gameObject.tag == "Player")
+        {
+            healthManager.maxHealth += healthIncrease;
+            Debug.Log(healthManager.maxHealth);
+        }
         
-        healthManager.maxHealth += healthIncrease;
-        Debug.Log(healthManager.maxHealth);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -37,6 +41,7 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
         //If the object that has been collided with is the Player
         if (other.gameObject.tag == "Player")
         {
+            healthManager = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>();
             //Clear the particle effect upon collision once its finished playing
             pickupParticle.Clear();
             //Start the coroutine for the pickup
