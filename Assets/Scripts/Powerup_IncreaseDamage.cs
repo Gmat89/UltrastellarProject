@@ -48,7 +48,7 @@ public class Powerup_IncreaseDamage : MonoBehaviour {
         IncreaseBulletDamage();
 
         //Disable the mesh renderer when pickup is obtained
-        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
         //Disable collider when the pickup is obtained.
         GetComponent<Collider>().enabled = false;
         //Destroy the particle

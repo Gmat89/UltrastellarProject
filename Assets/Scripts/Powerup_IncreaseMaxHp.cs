@@ -13,6 +13,7 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
 
     private HealthManager healthManager;
     public float healthIncrease;
+    
 
 
     // Use this for initialization
@@ -26,8 +27,13 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
 
     public void IncreaseMaxHp()
     {
-        healthManager.maxHealth += healthIncrease;
-        Debug.Log(healthManager.maxHealth);
+        //If the object that has been collided with is the Player
+        if (gameObject.tag == "Player")
+        {
+            healthManager.maxHealth += healthIncrease;
+            Debug.Log(healthManager.maxHealth);
+        }
+        
     }
 
     public void OnTriggerEnter(Collider other)
@@ -35,6 +41,7 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
         //If the object that has been collided with is the Player
         if (other.gameObject.tag == "Player")
         {
+            healthManager = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>();
             //Clear the particle effect upon collision once its finished playing
             pickupParticle.Clear();
             //Start the coroutine for the pickup
@@ -50,7 +57,7 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
         IncreaseMaxHp();
 
         //Disable the mesh renderer when pickup is obtained
-        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
         //Disable collider when the pickup is obtained.
         GetComponent<Collider>().enabled = false;
         //Destroy the particle

@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Powerup_PlayerSpeedUp : MonoBehaviour
 {
-    private PlayerController player;
+    public PlayerController player;
+    public GameObject playerPrefab;
     public float ROFPower;
     public GameObject pickupEffect;
     public ParticleSystem pickupParticle;
     public float powerupDuration = 4.0f;
 
-
-
-
     // Use this for initialization
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        playerPrefab = GameObject.FindGameObjectWithTag("Player");
         pickupParticle = GetComponent<ParticleSystem>();
     }
 
@@ -55,7 +54,7 @@ public class Powerup_PlayerSpeedUp : MonoBehaviour
         }
 
         //Disable the mesh renderer when pickup is obtained
-        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
         //Disable collider when the pickup is obtained.
         GetComponent<Collider>().enabled = false;
         //Destroy the particle
