@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 	public GameObject thePlayerPrefab;
 
 	//The Players start point
-	public Vector3 playerStartPoint;
+	public Transform playerStartPoint;
 
 	//Reference to the Score Manager
 	private ScoreManager theScoreManager;
@@ -177,9 +177,9 @@ public class GameManager : MonoBehaviour
 	private void SpawnPlayer()
 	{
 		//Spawn the next player at the player at the player start position
-		currentPlayer = Instantiate(thePlayerPrefab, playerStartPoint, transform.rotation);
+		currentPlayer = Instantiate(thePlayerPrefab, playerStartPoint.position, transform.rotation);
 		//set the player start point to the current player position
-		playerStartPoint = currentPlayer.transform.position;
+		playerStartPoint.transform.position = currentPlayer.transform.position;
 		//get the current players health manager and subscribe to the onplayer death event then listen for the player death function call
 		currentPlayer.GetComponent<HealthManager>().OnPlayerDeath += PlayerDeath;
 		//set the player spawned bool to true
@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
 		{
 			//subscribe to the the onplayerspawned event
 			OnPlayerSpawned(currentPlayer.GetComponent<PlayerController>());
-			Instantiate(respawnEffect,playerStartPoint, transform.rotation);
+			Instantiate(respawnEffect,playerStartPoint.position, transform.rotation);
 		}
 	}
 
@@ -220,7 +220,7 @@ public class GameManager : MonoBehaviour
 		//theWaveSpawner.state = SpawnState.COUNTING;
 
 		//set the current player position to the player start point
-		currentPlayer.transform.position = playerStartPoint;
+		currentPlayer.transform.position = playerStartPoint.position;
 
 		//TODO: Enemy spawn reset
 		//reset the enemy spawn points (not working)
