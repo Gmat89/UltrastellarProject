@@ -18,6 +18,8 @@ public class WayPoints : MonoBehaviour
 	public GameObject pickUp;
 	//the effect when the object is destroyed
 	public ParticleSystem popEffect;
+    private Vector3 currentRot;
+
    
 
     void Start()
@@ -55,6 +57,7 @@ public class WayPoints : MonoBehaviour
 		//Check if the objected that has been collided with has a tag of bullet
 		if (other.gameObject.tag == "Bullet")
 		{
+            currentRot = new Vector3(90, 0, 0);
 			//Print if it hit
 			Debug.Log("Hit Asteroid");
 			//Set the asteroid object visibility to false
@@ -63,10 +66,10 @@ public class WayPoints : MonoBehaviour
 			Instantiate(popEffect, transform.position, transform.rotation);
             //Remove the particle effect
             popEffect.Clear(true);
-			//Destroy the asteroid gameObject
-			//Destroy(gameObject);
-			//Spawn the pickup in its place
-			Instantiate(pickUp, transform.position, transform.rotation);
+            //Destroy the asteroid gameObject
+            //Destroy(gameObject);
+            //Spawn the pickup in its place
+			Instantiate(pickUp, transform.position, Quaternion.Euler(currentRot));
 
 
         }

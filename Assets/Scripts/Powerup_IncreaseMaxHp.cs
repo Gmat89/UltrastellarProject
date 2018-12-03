@@ -13,6 +13,7 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
 
     private HealthManager healthManager;
     public float healthIncrease;
+    
 
 
     // Use this for initialization
@@ -26,6 +27,7 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
 
     public void IncreaseMaxHp()
     {
+        
         healthManager.maxHealth += healthIncrease;
         Debug.Log(healthManager.maxHealth);
     }
@@ -50,7 +52,7 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
         IncreaseMaxHp();
 
         //Disable the mesh renderer when pickup is obtained
-        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
         //Disable collider when the pickup is obtained.
         GetComponent<Collider>().enabled = false;
         //Destroy the particle

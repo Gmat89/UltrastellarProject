@@ -50,7 +50,7 @@ public class Powerup_IncreaseHp : MonoBehaviour
         IncreaseCurrentHp();
 
         //Disable the mesh renderer when pickup is obtained
-        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
         //Disable collider when the pickup is obtained.
         GetComponent<Collider>().enabled = false;
         //Destroy the particle
