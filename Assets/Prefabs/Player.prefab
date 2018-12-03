@@ -617,9 +617,8 @@ MonoBehaviour:
   rend: {fileID: 23047154448974834}
   deathEffect: {fileID: 198352442773033964, guid: bef2986a238400141815b6797850c433,
     type: 2}
-  respawnEffect: {fileID: 198816254598590752, guid: 320c1ef2656c3c04c864087a8dfc4bb5,
-    type: 2}
   theHealthManager: {fileID: 114354178954037148}
+  Lookspeed: 70
   shipMesh: {fileID: 4211220043614846}
 --- !u!114 &114354178954037148
 MonoBehaviour:

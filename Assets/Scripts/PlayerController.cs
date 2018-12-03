@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 	public ParticleSystem deathEffect;
 	//Reference to the Health Manager
 	public HealthManager theHealthManager;
+	public float Lookspeed;
 
 	//ship mesh
 	public Transform shipMesh;
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
 		//ship rotation
 		//shipMesh.localRotation = Quaternion.Euler(0,0,moveInput.x*100);
-		shipMesh.localRotation = Quaternion.Lerp(shipMesh.localRotation, Quaternion.Euler(0, 0, moveInput.x * 65), Time.deltaTime * 3f);
+		shipMesh.localRotation = Quaternion.Lerp(shipMesh.localRotation, Quaternion.Euler(0, 0, moveInput.x * Lookspeed), Time.deltaTime * 3f);
 
 		//Check if the flash counter is greater than zero
 		if (flashCounter > 0)
@@ -135,7 +136,7 @@ public class PlayerController : MonoBehaviour
 				Vector3 lookAtPoint = new Vector3(pointToLook.x, transform.position.y,pointToLook.z);
 				Vector3 directionToLookAt = lookAtPoint - transform.position;
 				Quaternion lookRotation = Quaternion.LookRotation(directionToLookAt);
-				transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 3f);
+				transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 6f);
 			}
 			//If the fire button is pressed then fire the gun
 			if (Input.GetMouseButtonDown(0))

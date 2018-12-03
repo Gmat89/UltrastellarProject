@@ -327,5 +327,6 @@ MonoBehaviour:
   rend: {fileID: 23328129347904386}
   deathEffect: {fileID: 198352442773033964, guid: bef2986a238400141815b6797850c433,
     type: 2}
+  spawn: {fileID: 198940842794068686, guid: 41406d9c4f8cf604e9893208d9ad8860, type: 2}
   theHealthManager: {fileID: 114605218124024334}
   scoreToGive: 500

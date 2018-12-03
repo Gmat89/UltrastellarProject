@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
 	private Color storedColor;
 	//death particle effect
 	public ParticleSystem deathEffect;
+	public ParticleSystem spawn;
 	//reference to the health manager
 	public HealthManager theHealthManager;
 	//reference to the score  manager
@@ -34,6 +35,7 @@ public class EnemyController : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		
 		//Find this objects renderer
 		rend = GetComponent<Renderer>();
 		//Create a stored colour value on the renderer
@@ -46,6 +48,7 @@ public class EnemyController : MonoBehaviour
 		theScoreManager = FindObjectOfType<ScoreManager>();
 		//Subscribe to the OnEnemyDeath event
 		GetComponent<HealthManager>().OnEnemyDeath += EnemyDeath;
+		Instantiate(spawn, transform.position, transform.rotation);
 
 	}
 
