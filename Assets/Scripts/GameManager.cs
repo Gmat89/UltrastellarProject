@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 	public bool gameIsRunning;
 
 	//Reference to the Wave Spawner
-	private WaveSpawner theWaveSpawner;
+	//private WaveSpawner theWaveSpawner;
 
 	public UIManager theUIManager;
 
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 		//find the ScoreManager
 		theScoreManager = FindObjectOfType<ScoreManager>();
 		//Find the wave spawner
-		theWaveSpawner = FindObjectOfType<WaveSpawner>();
+		//theWaveSpawner = FindObjectOfType<WaveSpawner>();
 		//Subscribe to the OnPlayerDeath event and run the OnPlayerDead function when needed.
 		//thePlayerPrefab.GetComponent<HealthManager>().OnPlayerDeath += RestartGame;
 		theUIManager = FindObjectOfType<UIManager>();

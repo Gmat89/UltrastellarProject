@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
 	public HealthManager theHealthManager;
 	public float Lookspeed;
 
-	//ship mesh
+	
+	//ship mesh transform
 	public Transform shipMesh;
 
 	//As soon as the game is played
@@ -175,6 +176,7 @@ public class PlayerController : MonoBehaviour
 				theGun.isFiring = false;
 			}
 		}
+		
 	}
 
 	void FixedUpdate()
