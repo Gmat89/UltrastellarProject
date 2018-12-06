@@ -154,6 +154,8 @@ MonoBehaviour:
   pickupEffect: {fileID: 1119157666658544, guid: b0d5658983c75bd4e9459b8543113443,
     type: 2}
   pickupParticle: {fileID: 198800449218468708}
+  deathEffect: {fileID: 198352442773033964, guid: bef2986a238400141815b6797850c433,
+    type: 2}
 --- !u!135 &135841302054402536
 SphereCollider:
   m_ObjectHideFlags: 1

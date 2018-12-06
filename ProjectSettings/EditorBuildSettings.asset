@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 028066958e17ef9459087ee2105eea8d
   - enabled: 1
-    path: Assets/Scenes/UltraStellarTest.unity
+    path: Assets/Scenes/MainGame.unity
     guid: 93ffc7948e1895c4cba2a688b82a5b24
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 88029be75fde8624280aebd90d8615d8
   m_configObjects: {}

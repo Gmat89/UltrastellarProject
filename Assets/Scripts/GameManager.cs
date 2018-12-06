@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
 
 	public void PlayGame()
 	{
-		SceneManager.LoadScene("UltraStellarTest");
+		SceneManager.LoadScene("MainGame");
 		//theScoreManager.gameObject.SetActive(true);
 		//theWaveSpawner.gameObject.SetActive(true);
 	}

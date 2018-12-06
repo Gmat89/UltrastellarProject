@@ -7,18 +7,18 @@ public class Powerup_ClearScreen : MonoBehaviour
 
     public GameObject pickupEffect;
     public ParticleSystem pickupParticle;
+	public ParticleSystem deathEffect;
     private float powerupDuration = 4.0f;
-
     private GameObject[] gameObjects;
 
 
     // Use this for initialization
-    void Start()
-    {
-        pickupParticle = GetComponent<ParticleSystem>();
-    }
+	void Start()
+	{
+		pickupParticle = GetComponent<ParticleSystem>();
+	}
 
-    // Update is called once per frame
+	// Update is called once per frame
     void Update()
     {
 
@@ -30,8 +30,7 @@ public class Powerup_ClearScreen : MonoBehaviour
         gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
 
         for (var i = 0; i < gameObjects.Length; i++)
-        {
-
+		{
             Destroy(gameObjects[i]);
 
         }
@@ -42,7 +41,6 @@ public class Powerup_ClearScreen : MonoBehaviour
         {
 
             pickupParticle.Clear();
-            //DestoryAllEnemies();
             StartCoroutine(Pickup());
         }
     }
@@ -52,7 +50,7 @@ public class Powerup_ClearScreen : MonoBehaviour
         //Spawn Effect when pick is collected
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
-        //Apply the effect to the Player
+        //Call the destroy all enemies function
         DestoryAllEnemies();
 
         //Disable the mesh renderer when pickup is obtained

@@ -8,7 +8,7 @@ public class SceneToLoad : MonoBehaviour
 	public void GotoMainScene()
 	{
 		//Load the Main Game Scene
-		SceneManager.LoadScene("UltraStellarTest");
+		SceneManager.LoadScene("MainGame");
 	}
 	//Main Menu Function
 	public void GotoMenuScene()

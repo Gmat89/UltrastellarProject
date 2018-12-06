@@ -11,6 +11,7 @@ public class Powerup_PlayerSpeedUp : MonoBehaviour
     public ParticleSystem pickupParticle;
     public float powerupDuration = 4.0f;
 
+
     // Use this for initialization
     void Start()
     {
