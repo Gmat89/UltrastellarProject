@@ -242,6 +242,7 @@ MonoBehaviour:
   - {fileID: 1195407515929724, guid: 3b9e11b4476810a4aac51a79389bfed1, type: 2}
   - {fileID: 1913075767643644, guid: b2394123522c7ea43998ef6336e219e6, type: 2}
   - {fileID: 1231856651962708, guid: 02d5e9784e196cd40ac449e27d7403ce, type: 2}
+  - {fileID: 1664490278860990, guid: c0d12cbd527dd1645928cbd861170376, type: 2}
   rotSpeed: 2
   speed: 3
   pickUp: {fileID: 1998895098872880, guid: cd0266011152c4647a96d7e09135ed49, type: 2}
