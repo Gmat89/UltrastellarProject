@@ -19,13 +19,14 @@ public class WayPoints : MonoBehaviour
 	//the effect when the object is destroyed
 	public ParticleSystem popEffect;
     private Vector3 currentRot;
+	public AudioSource asteroidSource;
 
    
 
     void Start()
 	{
+		asteroidSource = GetComponent<AudioSource>();
 
- 	
 	}
 
     void Update()
@@ -60,6 +61,7 @@ public class WayPoints : MonoBehaviour
             currentRot = new Vector3(90, 0, 0);
 			//Print if it hit
 			Debug.Log("Hit Asteroid");
+			asteroidSource.Play();
 			//Set the asteroid object visibility to false
 			gameObject.SetActive(false);
 			//Spawn the particle effect at the relative location

@@ -12,16 +12,19 @@ public class Powerup_IncreaseHp : MonoBehaviour
 
     private HealthManager healthManager;
     public float healthIncrease;
+	public AudioSource PickupAudio;
+	
 
-
-    // Use this for initialization
-    void Start()
+	// Use this for initialization
+	void Start()
     {
         
         //Debug.Log(healthManager.maxHealth);
         //Declare the pickup Particle effect, find the particle system
         pickupParticle = GetComponent<ParticleSystem>();
-    }
+		PickupAudio = GetComponent<AudioSource>();
+		// Explosion Audio
+	}
 
 
     public void IncreaseCurrentHp()
@@ -42,7 +45,8 @@ public class Powerup_IncreaseHp : MonoBehaviour
             pickupParticle.Clear();
             //Start the coroutine for the pickup
             StartCoroutine(Pickup());
-        }
+			PickupAudio.Play();
+		}
     }
 
     IEnumerator Pickup()

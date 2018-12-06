@@ -10,17 +10,19 @@ public class Powerup_IncreaseDamage : MonoBehaviour {
 
     public PlayerBulletController damageIncrease;
     public int bulletDamageIncrease;
+	public AudioSource PickupAudio;
 
 
-    // Use this for initialization
-    void Start()
+	// Use this for initialization
+	void Start()
     {
         damageIncrease = FindObjectOfType<PlayerBulletController>();
         Debug.Log(damageIncrease.damageToGive);
 
         //Declare the pickup Particle effect, find the particle system
         pickupParticle = GetComponent<ParticleSystem>();
-    }
+		PickupAudio = GetComponent<AudioSource>();
+	}
 
 
     public void IncreaseBulletDamage()
@@ -38,7 +40,8 @@ public class Powerup_IncreaseDamage : MonoBehaviour {
             pickupParticle.Clear();
             //Start the coroutine for the pickup
             StartCoroutine(Pickup());
-        }
+			PickupAudio.Play();
+		}
     }
 
     IEnumerator Pickup()

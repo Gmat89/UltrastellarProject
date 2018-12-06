@@ -247,6 +247,7 @@ MonoBehaviour:
   pickUp: {fileID: 1748959146294636, guid: 2262596fbe4b479409678abd0c4d1449, type: 2}
   popEffect: {fileID: 198673669173671770, guid: bdfb0dc4ca073ba4cb5fc5f034aefc27,
     type: 2}
+  asteroidSource: {fileID: 82121411705136068}
 --- !u!135 &135916702470007620
 SphereCollider:
   m_ObjectHideFlags: 1

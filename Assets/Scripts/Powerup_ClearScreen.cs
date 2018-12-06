@@ -5,18 +5,21 @@ using UnityEngine;
 public class Powerup_ClearScreen : MonoBehaviour
 {
 
+	public AudioSource BuffPickUp;
     public GameObject pickupEffect;
     public ParticleSystem pickupParticle;
     private float powerupDuration = 4.0f;
 
     private GameObject[] gameObjects;
+	public AudioSource PickupAudio;
 
 
-    // Use this for initialization
-    void Start()
+	// Use this for initialization
+	void Start()
     {
         pickupParticle = GetComponent<ParticleSystem>();
-    }
+		PickupAudio = GetComponent<AudioSource>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -40,17 +43,19 @@ public class Powerup_ClearScreen : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-
+			
             pickupParticle.Clear();
             //DestoryAllEnemies();
             StartCoroutine(Pickup());
-        }
+			PickupAudio.Play();
+		}
     }
 
     IEnumerator Pickup()
     {
-        //Spawn Effect when pick is collected
-        Instantiate(pickupEffect, transform.position, transform.rotation);
+		BuffPickUp.Play();
+		//Spawn Effect when pick is collected
+		Instantiate(pickupEffect, transform.position, transform.rotation);
 
         //Apply the effect to the Player
         DestoryAllEnemies();
