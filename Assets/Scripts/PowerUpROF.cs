@@ -14,7 +14,6 @@ public class PowerUpROF : MonoBehaviour
 	//The duration of the powerup
 	public float powerupDuration = 4.0f;
     public AudioSource PickupAudio;
-    public AudioClip AsteroidExplosion;
 
 
 
@@ -28,8 +27,6 @@ public class PowerUpROF : MonoBehaviour
         //pickup Audio
         PickupAudio = GetComponent<AudioSource>();
         // Explosion Audio
-        AsteroidExplosion = GetComponent<AudioClip>();
-        
 	}
 
 	// Update is called once per frame

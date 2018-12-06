@@ -10,15 +10,16 @@ public class Powerup_PlayerSpeedUp : MonoBehaviour
     public GameObject pickupEffect;
     public ParticleSystem pickupParticle;
     public float powerupDuration = 4.0f;
+	public AudioSource PickupAudio;
 
-
-    // Use this for initialization
-    void Start()
+	// Use this for initialization
+	void Start()
     {
         player = FindObjectOfType<PlayerController>();
         playerPrefab = GameObject.FindGameObjectWithTag("Player");
-        pickupParticle = GetComponent<ParticleSystem>();
-    }
+		pickupParticle = GetComponent<ParticleSystem>();
+		PickupAudio = GetComponent<AudioSource>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -34,7 +35,8 @@ public class Powerup_PlayerSpeedUp : MonoBehaviour
         {
             pickupParticle.Clear();
             StartCoroutine(Pickup());
-        }
+			PickupAudio.Play();
+		}
     }
 
     IEnumerator Pickup()

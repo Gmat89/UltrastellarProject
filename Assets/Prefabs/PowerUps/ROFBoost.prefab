@@ -54,7 +54,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eb2316e36a9608e40964f98a9f36aabb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e4ab9cc52af106c46a69e4ac406f57f5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -158,7 +158,6 @@ MonoBehaviour:
   pickupParticle: {fileID: 198434597450742728}
   powerupDuration: 4
   PickupAudio: {fileID: 82665362954472534}
-  AsteroidExplosion: {fileID: 0}
 --- !u!135 &135726647513676636
 SphereCollider:
   m_ObjectHideFlags: 1

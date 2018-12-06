@@ -13,25 +13,28 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
 
     private HealthManager healthManager;
     public float healthIncrease;
-    
+	public AudioSource PickupAudio;
 
 
-    // Use this for initialization
-    void Start()
+	// Use this for initialization
+	void Start()
     {
-        healthManager = FindObjectOfType<HealthManager>();
+		//buffSFX.Play();
+		healthManager = FindObjectOfType<HealthManager>();
         Debug.Log(healthManager.maxHealth);
         //Declare the pickup Particle effect, find the particle system
         pickupParticle = GetComponent<ParticleSystem>();
-    }
+		PickupAudio = GetComponent<AudioSource>();
+	}
+
 
     public void IncreaseMaxHp()
     {
-        //If the object that has been collided with is the Player
-        if (gameObject.tag == "Player")
+		//If the object that has been collided with is the Player
+		if (gameObject.tag == "Player")
         {
             healthManager.maxHealth += healthIncrease;
-            Debug.Log(healthManager.maxHealth);
+			Debug.Log(healthManager.maxHealth);
         }
         
     }
@@ -44,30 +47,31 @@ public class Powerup_IncreaseMaxHp : MonoBehaviour
             healthManager = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>();
             //Clear the particle effect upon collision once its finished playing
             pickupParticle.Clear();
-            //Start the coroutine for the pickup
-            StartCoroutine(Pickup());
-        }
+			//buffSFX.Play();
+			//Start the coroutine for the pickup
+			StartCoroutine(Pickup());
+			PickupAudio.Play();
+		}
     }
 
     IEnumerator Pickup()
     {
-        //Spawn Effect when pick is collected
-        Instantiate(pickupEffect, transform.position, transform.rotation);
-
-        IncreaseMaxHp();
-
-        //Disable the mesh renderer when pickup is obtained
-        GetComponent<SpriteRenderer>().enabled = false;
-        //Disable collider when the pickup is obtained.
-        GetComponent<Collider>().enabled = false;
+		//Spawn Effect when pick is collected
+		Instantiate(pickupEffect, transform.position, transform.rotation);
+		
+		IncreaseMaxHp();
+		//Disable the mesh renderer when pickup is obtained
+		GetComponent<SpriteRenderer>().enabled = false;
+		//Disable collider when the pickup is obtained.
+		GetComponent<Collider>().enabled = false;
         //Destroy the particle
         Destroy(pickupParticle);
 
         //Wait x amount of seconds
         yield return new WaitForSeconds(1.0f);
 
-
-        //Destory the Pickup object
-        Destroy(gameObject);
+		
+		//Destory the Pickup object
+		Destroy(gameObject);
     }
 }

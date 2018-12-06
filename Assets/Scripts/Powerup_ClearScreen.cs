@@ -5,20 +5,23 @@ using UnityEngine;
 public class Powerup_ClearScreen : MonoBehaviour
 {
 
+	public AudioSource BuffPickUp;
     public GameObject pickupEffect;
     public ParticleSystem pickupParticle;
-	public ParticleSystem deathEffect;
     private float powerupDuration = 4.0f;
+
     private GameObject[] gameObjects;
+	public AudioSource PickupAudio;
 
 
-    // Use this for initialization
+	// Use this for initialization
 	void Start()
-	{
-		pickupParticle = GetComponent<ParticleSystem>();
+    {
+        pickupParticle = GetComponent<ParticleSystem>();
+		PickupAudio = GetComponent<AudioSource>();
 	}
 
-	// Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
 
@@ -30,7 +33,8 @@ public class Powerup_ClearScreen : MonoBehaviour
         gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
 
         for (var i = 0; i < gameObjects.Length; i++)
-		{
+        {
+
             Destroy(gameObjects[i]);
 
         }
@@ -39,18 +43,21 @@ public class Powerup_ClearScreen : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-
+			
             pickupParticle.Clear();
+            //DestoryAllEnemies();
             StartCoroutine(Pickup());
-        }
+			PickupAudio.Play();
+		}
     }
 
     IEnumerator Pickup()
     {
-        //Spawn Effect when pick is collected
-        Instantiate(pickupEffect, transform.position, transform.rotation);
+		BuffPickUp.Play();
+		//Spawn Effect when pick is collected
+		Instantiate(pickupEffect, transform.position, transform.rotation);
 
-        //Call the destroy all enemies function
+        //Apply the effect to the Player
         DestoryAllEnemies();
 
         //Disable the mesh renderer when pickup is obtained

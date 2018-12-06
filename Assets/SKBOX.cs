@@ -9,16 +9,19 @@ public class SKBOX : MonoBehaviour
 	public Material BACKGROUND;
 	public Camera Mycam;
 	public Vector2 trippy;
+	float scrollSpeed = 0.5f;
+	Renderer rend;
 
-	// Use this for initialization
-	void Start ()
+	void Start()
 	{
-
+		BACKGROUND = GetComponent<Material>();
+		rend = GetComponent<Renderer>();
+		Mycam = GetComponent<Camera>();
 	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
 
+	void Update()
+	{
+		float offset = Time.time * scrollSpeed;
+		rend.material.mainTextureOffset = new Vector2(offset, 0);
 	}
 }

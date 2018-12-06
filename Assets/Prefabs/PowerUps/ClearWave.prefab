@@ -54,7 +54,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eb2316e36a9608e40964f98a9f36aabb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e4ab9cc52af106c46a69e4ac406f57f5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -151,11 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37131968d64fe0e45b72103dd68a937f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuffPickUp: {fileID: 82491428296185280}
   pickupEffect: {fileID: 1119157666658544, guid: b0d5658983c75bd4e9459b8543113443,
     type: 2}
   pickupParticle: {fileID: 198800449218468708}
-  deathEffect: {fileID: 198352442773033964, guid: bef2986a238400141815b6797850c433,
-    type: 2}
+  PickupAudio: {fileID: 82491428296185280}
 --- !u!135 &135841302054402536
 SphereCollider:
   m_ObjectHideFlags: 1
