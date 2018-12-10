@@ -29,9 +29,11 @@ public class Powerup_IncreaseHp : MonoBehaviour
 
     public void IncreaseCurrentHp()
     {
-        healthManager.currentHealth += healthIncrease;
-        Debug.Log(healthManager.currentHealth);
         
+            healthManager.currentHealth += healthIncrease;
+            Debug.Log(healthManager.currentHealth);
+        
+
 
     }
 

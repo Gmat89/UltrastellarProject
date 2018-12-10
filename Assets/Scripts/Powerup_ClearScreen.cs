@@ -6,10 +6,11 @@ public class Powerup_ClearScreen : MonoBehaviour
 {
 
 	public AudioSource BuffPickUp;
+    private ScoreManager scoreManager;
     public GameObject pickupEffect;
     public ParticleSystem pickupParticle;
     private float powerupDuration = 4.0f;
-
+    private int scoreToGive = 1000;
     private GameObject[] gameObjects;
 	public AudioSource PickupAudio;
 
@@ -19,6 +20,7 @@ public class Powerup_ClearScreen : MonoBehaviour
     {
         pickupParticle = GetComponent<ParticleSystem>();
 		PickupAudio = GetComponent<AudioSource>();
+        scoreManager = FindObjectOfType<ScoreManager>();
 	}
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class Powerup_ClearScreen : MonoBehaviour
     public void DestoryAllEnemies()
     {
         gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
-
+        scoreManager.AddScore(scoreToGive);
         for (var i = 0; i < gameObjects.Length; i++)
         {
 
