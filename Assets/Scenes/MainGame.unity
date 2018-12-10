@@ -713,6 +713,30 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 8.7
       objectReference: {fileID: 0}
+    - target: {fileID: 4873743435320206, guid: d5c2489aaa7456644bc51b5b68e87a18, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774598961443042, guid: d5c2489aaa7456644bc51b5b68e87a18, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386558219270976, guid: d5c2489aaa7456644bc51b5b68e87a18, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698403520152174, guid: d5c2489aaa7456644bc51b5b68e87a18, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627456848723104, guid: d5c2489aaa7456644bc51b5b68e87a18, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935521902016424, guid: d5c2489aaa7456644bc51b5b68e87a18, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5c2489aaa7456644bc51b5b68e87a18, type: 2}
   m_IsPrefabAsset: 0
@@ -1302,11 +1326,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupObject:
-  - {fileID: 1217056789517808, guid: f19e547f5aea68f4d9cbe491cf209a98, type: 2}
   - {fileID: 1004417545214986, guid: c66771fc519dd29469876c3e16f5e74b, type: 2}
   - {fileID: 1920928610902648, guid: b51bc7e367925c745aec790495aa5a38, type: 2}
   - {fileID: 1686000005696182, guid: 501277f97f12e3540a51030c730a7fd4, type: 2}
-  - {fileID: 1229312834836942, guid: 4417b5981a663ee4dbe8629e80a97d79, type: 2}
+  - {fileID: 1686000005696182, guid: 501277f97f12e3540a51030c730a7fd4, type: 2}
+  - {fileID: 1686000005696182, guid: 501277f97f12e3540a51030c730a7fd4, type: 2}
+  - {fileID: 1217056789517808, guid: f19e547f5aea68f4d9cbe491cf209a98, type: 2}
+  - {fileID: 1217056789517808, guid: f19e547f5aea68f4d9cbe491cf209a98, type: 2}
+  - {fileID: 1217056789517808, guid: f19e547f5aea68f4d9cbe491cf209a98, type: 2}
+  - {fileID: 1348101110084914, guid: 35dbbeb27d71fe5498c962b2914b9295, type: 2}
+  - {fileID: 1348101110084914, guid: 35dbbeb27d71fe5498c962b2914b9295, type: 2}
   - {fileID: 1348101110084914, guid: 35dbbeb27d71fe5498c962b2914b9295, type: 2}
   maxCount: 5
   timeBetweenSpawns: 2
@@ -1426,7 +1455,7 @@ Prefab:
         type: 0}
     - target: {fileID: 4042489093881418, guid: ac445889c4f7b5b42959754cb7d87d49, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4042489093881418, guid: ac445889c4f7b5b42959754cb7d87d49, type: 2}
       propertyPath: m_LocalPosition.z
