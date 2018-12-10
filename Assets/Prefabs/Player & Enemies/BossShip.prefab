@@ -282,13 +282,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAttacking: 0
   bullet: {fileID: 114662850104228178, guid: a2bacf50ca66db24cb7e102b102301ef, type: 2}
-  bulletSpeed: 3
+  bulletSpeed: 5
   bulletSpawnPoint: {fileID: 4090310659518260}
   thePlayer: {fileID: 4572241139371512, guid: 51853b496cee45b4fa03ce3c31a5b5e0, type: 2}
   theEnemy: {fileID: 4784399407997996}
   Distance: {x: 0, y: 0, z: 0}
   DistanceFrom: 0
-  DistanceToPlayer: 20
+  DistanceToPlayer: 500
   Timer: 2
 --- !u!114 &114605218124024334
 MonoBehaviour:
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c753945fdb25a8f4d8c7828dbe03d7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
   thePlayer: {fileID: 114332756829773846, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
     type: 2}
   thePlayerObject: {fileID: 1361214432639192, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
@@ -330,3 +330,9 @@ MonoBehaviour:
   spawn: {fileID: 198940842794068686, guid: 41406d9c4f8cf604e9893208d9ad8860, type: 2}
   theHealthManager: {fileID: 114605218124024334}
   scoreToGive: 500
+  myTransform: {fileID: 4784399407997996}
+  rotationSpeed: 3
+  isChasing: 0
+  maxDist: 10
+  minDist: 1
+  fireDist: 0

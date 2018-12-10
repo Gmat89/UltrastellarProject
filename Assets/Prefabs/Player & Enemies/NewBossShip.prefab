@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c753945fdb25a8f4d8c7828dbe03d7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 1
   thePlayer: {fileID: 114332756829773846, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
     type: 2}
   thePlayerObject: {fileID: 1361214432639192, guid: 51853b496cee45b4fa03ce3c31a5b5e0,
@@ -279,6 +279,12 @@ MonoBehaviour:
   spawn: {fileID: 198940842794068686, guid: 41406d9c4f8cf604e9893208d9ad8860, type: 2}
   theHealthManager: {fileID: 114948305703115598}
   scoreToGive: 500
+  myTransform: {fileID: 224161120254201888}
+  rotationSpeed: 2
+  isChasing: 0
+  maxDist: 10
+  minDist: 1
+  fireDist: 0
 --- !u!114 &114948305703115598
 MonoBehaviour:
   m_ObjectHideFlags: 1

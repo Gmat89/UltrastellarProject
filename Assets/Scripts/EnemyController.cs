@@ -32,6 +32,13 @@ public class EnemyController : MonoBehaviour
 	//score to give when killed
 	public int scoreToGive;
 
+	public Transform myTransform;
+	public float rotationSpeed;
+	public bool isChasing;
+	public float maxDist;
+	public float minDist;
+	public float fireDist;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -55,7 +62,10 @@ public class EnemyController : MonoBehaviour
 	void FixedUpdate()
 	{
 		//move at a set speed
-		myRB.velocity = (transform.forward * moveSpeed);
+		//myRB.velocity = (transform.forward * moveSpeed);
+		myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+		
+
 	}
 
 	// Update is called once per frame
@@ -69,8 +79,33 @@ public class EnemyController : MonoBehaviour
 		//Check if the playerisdead bool is false and if the player is in the scene
 		if (theHealthManager.playerIsDead == false && thePlayer != null)
 		{
-			//search for the player and look at them whereever the move
-			transform.LookAt(thePlayer.transform.position);
+			float distance = (thePlayer.transform.position - myTransform.position).magnitude;
+			isChasing = true;
+			if (isChasing)
+			{
+				//search for the player and look at them whereever the move
+				myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.LookRotation(thePlayer.transform.position - myTransform.position), rotationSpeed * Time.deltaTime);
+				myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+				//transform.LookAt(thePlayer.transform.position);
+			}
+			//Moves too far away from player
+			if (distance > maxDist)
+			{
+				isChasing = false;
+			}
+			if (distance < minDist)
+			{
+				myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.LookRotation(myTransform.position - thePlayer.transform.position), rotationSpeed * Time.deltaTime);
+				myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+			}
+			else
+			{
+				if (distance < maxDist)
+				{
+					isChasing = true;
+				}
+			}
+
 		}
 		//Check if the playerisdead bool is true and there is no player in the scene
 		if (theHealthManager.playerIsDead == true && thePlayer == null)
