@@ -1334,7 +1334,7 @@ MonoBehaviour:
   - {fileID: 1217056789517808, guid: f19e547f5aea68f4d9cbe491cf209a98, type: 2}
   - {fileID: 1217056789517808, guid: f19e547f5aea68f4d9cbe491cf209a98, type: 2}
   - {fileID: 1217056789517808, guid: f19e547f5aea68f4d9cbe491cf209a98, type: 2}
-  - {fileID: 1348101110084914, guid: 35dbbeb27d71fe5498c962b2914b9295, type: 2}
+  - {fileID: 1217056789517808, guid: f19e547f5aea68f4d9cbe491cf209a98, type: 2}
   - {fileID: 1348101110084914, guid: 35dbbeb27d71fe5498c962b2914b9295, type: 2}
   - {fileID: 1348101110084914, guid: 35dbbeb27d71fe5498c962b2914b9295, type: 2}
   maxCount: 5
@@ -1451,8 +1451,7 @@ Prefab:
     - target: {fileID: 1565410608603674, guid: ac445889c4f7b5b42959754cb7d87d49, type: 2}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000,
-        type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 4042489093881418, guid: ac445889c4f7b5b42959754cb7d87d49, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -1470,6 +1469,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114526354395882816, guid: ac445889c4f7b5b42959754cb7d87d49,
+        type: 2}
+      propertyPath: waves.Array.data[2].enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 224936337788071624, guid: 69925b8423ad4c7479fb44224fe7f166,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac445889c4f7b5b42959754cb7d87d49, type: 2}
   m_IsPrefabAsset: 0

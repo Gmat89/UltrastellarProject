@@ -417,7 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAttacking: 0
   bullet: {fileID: 114662850104228178, guid: a2bacf50ca66db24cb7e102b102301ef, type: 2}
-  bulletSpeed: 7
+  bulletSpeed: 10
   bulletSpawnPoint: {fileID: 4689131589815016}
   thePlayer: {fileID: 4572241139371512, guid: 51853b496cee45b4fa03ce3c31a5b5e0, type: 2}
   theEnemy: {fileID: 224936337788071624}
